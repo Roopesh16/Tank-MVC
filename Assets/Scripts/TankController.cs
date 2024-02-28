@@ -27,4 +27,9 @@ public class TankController
         Quaternion deltaRotation = Quaternion.Euler(vector * Time.deltaTime);
         tankRb.MoveRotation(tankRb.rotation * deltaRotation);
     }
+
+    public TankModel GetTankModel()
+    {
+        return tankModel;
+    }
 }

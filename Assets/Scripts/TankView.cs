@@ -4,6 +4,7 @@ using UnityEngine;
 public class TankView : MonoBehaviour
 {
     [SerializeField] private Rigidbody tankRb;
+    [SerializeField] private MeshRenderer[] meshRenderers = new MeshRenderer[4];
     private TankController tankController;
     private float movement;
     private float rotation;
@@ -45,5 +46,13 @@ public class TankView : MonoBehaviour
         GameObject mainCamera = GameObject.Find("Main Camera");
         mainCamera.transform.SetParent(gameObject.transform);
         mainCamera.transform.position = new Vector3(0f, 3f, -6f);
+    }
+
+    public void SetColor(Material color)
+    {
+        for (int i = 0; i < 4;i++)
+        {
+            meshRenderers[i].material = color;
+        }
     }
 }

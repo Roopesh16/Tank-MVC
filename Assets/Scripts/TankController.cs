@@ -11,9 +11,9 @@ public class TankController
         this.tankModel = tankModel;
         this.tankView = GameObject.Instantiate<TankView>(tankView);
 
-        tankRb = tankView.GetRigidbody();
-        tankModel.SetTankController(this);
-        tankView.SetTankController(this);
+        tankRb = this.tankView.GetRigidbody();
+        this.tankModel.SetTankController(this);
+        this.tankView.SetTankController(this);
     }
 
     public void Move(float movement, float movementSpeed)

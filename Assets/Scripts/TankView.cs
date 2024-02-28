@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class TankView : MonoBehaviour
@@ -9,7 +10,7 @@ public class TankView : MonoBehaviour
 
     void Start()
     {
-        
+        SetupCamera();
     }
 
     void Update()
@@ -37,5 +38,12 @@ public class TankView : MonoBehaviour
     {
         movement = Input.GetAxis("Vertical");
         rotation = Input.GetAxis("Horizontal");
+    }
+
+    private void SetupCamera()
+    {
+        GameObject mainCamera = GameObject.Find("Main Camera");
+        mainCamera.transform.SetParent(gameObject.transform);
+        mainCamera.transform.position = new Vector3(0f, 3f, -6f);
     }
 }

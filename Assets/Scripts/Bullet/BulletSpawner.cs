@@ -22,7 +22,7 @@ public class BulletSpawner : MonoBehaviour
     {
         int bulId = (int)bulletTypes;
         BulletModel bulletModel = new BulletModel(bullets[bulId].bulletSpeed, bullets[bulId].bulletType, bullets[bulId].color);
-        bulletController = new BulletController(bulletModel, bulletPrefab, spawnPoint);
+        bulletController = new BulletController(bulletModel, bulletPrefab, spawnPoint,transform);
         hasTankSpawned = true;
     }
 

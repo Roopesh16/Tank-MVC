@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BulletModel
 {
-    private float bulletSpeed;
-    private BulletType bulletType;
-    private Material color;
+    public float bulletSpeed;
+    public BulletType bulletType;
+    public Material color;
 
     public BulletModel(float bulletSpeed,BulletType bulletType,Material color)
     {

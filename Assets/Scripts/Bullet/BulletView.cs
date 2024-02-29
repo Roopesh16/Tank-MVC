@@ -15,7 +15,7 @@ public class BulletView : MonoBehaviour
     {
         if (canMove)
         {
-            transform.Translate(transform.forward * bulletSpeed * Time.deltaTime,Space.Self);
+            transform.Translate(transform.forward * bulletSpeed * Time.deltaTime,Space.World);
         }
     }
 

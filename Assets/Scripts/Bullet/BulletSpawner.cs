@@ -13,13 +13,25 @@ public class Bullet
 
 public class BulletSpawner : MonoBehaviour
 {
-    public BulletView bulletPrefab;
-    public List<Bullet> bullets = new List<Bullet>();
-    
-    public void CreateBullet(BulletType bulletTypes)
+    [SerializeField] private BulletView bulletPrefab;
+    [SerializeField] private List<Bullet> bullets = new List<Bullet>();
+    private bool hasTankSpawned = false;
+    private BulletController bulletController;
+
+    public void CreateBullet(BulletType bulletTypes, Transform spawnPoint)
     {
         int bulId = (int)bulletTypes;
         BulletModel bulletModel = new BulletModel(bullets[bulId].bulletSpeed, bullets[bulId].bulletType, bullets[bulId].color);
-        BulletController bulletController = new BulletController(bulletModel, bulletPrefab);
+        bulletController = new BulletController(bulletModel, bulletPrefab, spawnPoint);
+        hasTankSpawned = true;
+    }
+
+    private void Update()
+    {
+        if(hasTankSpawned && Input.GetKeyDown(KeyCode.Space))
+        {
+            bulletController.Shoot();
+        }
+
     }
 }

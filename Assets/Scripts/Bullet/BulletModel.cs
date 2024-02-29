@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletModel : MonoBehaviour
+public class BulletModel
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float bulletSpeed;
+    private BulletType bulletType;
+    private Material color;
 
-    // Update is called once per frame
-    void Update()
+    public BulletModel(float bulletSpeed,BulletType bulletType,Material color)
     {
-        
+        this.bulletSpeed = bulletSpeed;
+        this.bulletType = bulletType;
+        this.color = color;
     }
 }

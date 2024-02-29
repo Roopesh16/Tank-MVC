@@ -18,11 +18,11 @@ public class BulletSpawner : MonoBehaviour
     private bool hasTankSpawned = false;
     private BulletController bulletController;
 
-    public void CreateBullet(BulletType bulletTypes, Transform spawnPoint)
+    public void CreateBullet(BulletType bulletTypes, Transform bulletSpawnPoint)
     {
         int bulId = (int)bulletTypes;
         BulletModel bulletModel = new BulletModel(bullets[bulId].bulletSpeed, bullets[bulId].bulletType, bullets[bulId].color);
-        bulletController = new BulletController(bulletModel, bulletPrefab, spawnPoint,transform);
+        bulletController = new BulletController(bulletModel, bulletPrefab, bulletSpawnPoint,transform);
         hasTankSpawned = true;
     }
 

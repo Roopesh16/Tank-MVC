@@ -6,8 +6,9 @@ public class BulletView : MonoBehaviour
 {
     bool hasTankSpawned = false;
     private MeshRenderer meshRenderer;
+    private BulletController bulletController;
 
-    private void Start()
+    private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
     }

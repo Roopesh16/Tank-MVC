@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 592534824}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1934558786557159878}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankRenderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 5388503992525576920}
   - component: {fileID: 3950800584545353748}
   - component: {fileID: 2738075927446508346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,6 +119,7 @@ MonoBehaviour:
   - {fileID: 1934558786559454044}
   - {fileID: 1934558786559454034}
   - {fileID: 1934558786559454040}
+  bulletSpawn: {fileID: 592534824}
 --- !u!54 &3950800584545353748
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -215,6 +216,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankTracksRight
       objectReference: {fileID: 0}
+    - target: {fileID: 1668863071470191938, guid: 75561347387bd8644923550682e860eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75561347387bd8644923550682e860eb, type: 3}
 --- !u!4 &1934558786557159884 stripped
@@ -240,6 +246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TankTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036738496132974212, guid: 65d64079fd031fa4eac4f7e371f2c980,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1036738496133143396, guid: 65d64079fd031fa4eac4f7e371f2c980,
         type: 3}
@@ -321,6 +332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TankChassis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990310986088417460, guid: 49ec777a682cd9d4faafcf5522ebba96,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5990310986088453460, guid: 49ec777a682cd9d4faafcf5522ebba96,
         type: 3}
@@ -457,6 +473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TankTracksLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907319655897455628, guid: a983faac264e0614f8a6e21b327310eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a983faac264e0614f8a6e21b327310eb, type: 3}

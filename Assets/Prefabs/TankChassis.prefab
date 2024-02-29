@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5990310986088453460}
   - component: {fileID: 5990310986087159046}
   - component: {fileID: 5990310986086160326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

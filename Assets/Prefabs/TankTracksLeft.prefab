@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8907319655897022956}
   - component: {fileID: 8907319655898317246}
   - component: {fileID: 8907319655899448190}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

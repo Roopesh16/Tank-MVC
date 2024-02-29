@@ -9,7 +9,8 @@ public class BulletController
     private Transform spawnPoint;
     private Transform parentPosition;
 
-    public BulletController(BulletModel bulletModel, BulletView bulletView, Transform spawnPoint, Transform parent)
+
+    public BulletController(BulletModel bulletModel, BulletView bulletView, Transform spawnPoint, Transform parentPosition)
     {
         this.bulletModel = bulletModel;
         this.bulletView = bulletView;
@@ -17,7 +18,7 @@ public class BulletController
         this.bulletView.SetBulletController(this);
         this.bulletModel.SetBulletController(this);
         this.spawnPoint = spawnPoint;
-
+        this.parentPosition = parentPosition;
     }
 
     public void Shoot()

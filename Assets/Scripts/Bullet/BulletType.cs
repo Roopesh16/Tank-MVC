@@ -1,6 +1,6 @@
 public enum BulletType
 {
-    RED,
+    GREEN,
     BLUE,
-    GREEN
+    RED
 }

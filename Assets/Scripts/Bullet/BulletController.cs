@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletController
@@ -6,8 +7,9 @@ public class BulletController
     private BulletModel bulletModel;
     private BulletView bulletView;
     private Transform spawnPoint;
+    private Transform parentPosition;
 
-    public BulletController(BulletModel bulletModel, BulletView bulletView, Transform spawnPoint)
+    public BulletController(BulletModel bulletModel, BulletView bulletView, Transform spawnPoint, Transform parent)
     {
         this.bulletModel = bulletModel;
         this.bulletView = bulletView;
@@ -21,6 +23,7 @@ public class BulletController
     public void Shoot()
     {
         BulletView bullet = GameObject.Instantiate<BulletView>(bulletView, spawnPoint);
-        bullet.SetBulletData(bulletModel.color,bulletModel.bulletSpeed);
+        bullet.transform.SetParent(parentPosition);
+        bullet.SetBulletData(bulletModel.color, bulletModel.bulletSpeed);
     }
 }

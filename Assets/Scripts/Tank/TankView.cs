@@ -6,6 +6,7 @@ public class TankView : MonoBehaviour
     [SerializeField] private Rigidbody tankRb;
     [SerializeField] private MeshRenderer[] meshRenderers = new MeshRenderer[4];
     [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private Transform cameraPosition;
     private TankController tankController;
     private float movement;
     private float rotation;
@@ -45,8 +46,9 @@ public class TankView : MonoBehaviour
     private void SetupCamera()
     {
         GameObject mainCamera = GameObject.Find("Main Camera");
-        mainCamera.transform.SetParent(gameObject.transform);
-        mainCamera.transform.position = new Vector3(0f, 3f, -6f);
+        mainCamera.transform.SetParent(cameraPosition);
+        mainCamera.transform.localPosition = Vector3.zero;
+        mainCamera.transform.localEulerAngles = Vector3.zero;
     }
 
     public void SetColor(Material color)

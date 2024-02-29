@@ -15,11 +15,19 @@ public class BulletView : MonoBehaviour
     {
         if (canMove)
         {
-            transform.Translate(transform.forward * bulletSpeed * Time.deltaTime,Space.World);
+            transform.Translate(transform.forward * bulletSpeed * Time.deltaTime, Space.World);
         }
     }
 
-    public void SetBulletData(Material color,float bulletSpeed)
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Buildings")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetBulletData(Material color, float bulletSpeed)
     {
         meshRenderer.material = color;
         this.bulletSpeed = bulletSpeed;

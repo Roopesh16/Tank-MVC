@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletView : MonoBehaviour
 {
-    bool hasTankSpawned = false;
+    bool canMove = false;
     private MeshRenderer meshRenderer;
     private BulletController bulletController;
-
+    private float bulletSpeed;
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -15,16 +13,17 @@ public class BulletView : MonoBehaviour
 
     void Update()
     {
-        if (hasTankSpawned)
+        if (canMove)
         {
-
+            transform.Translate(transform.forward * bulletSpeed * Time.deltaTime,Space.Self);
         }
     }
 
-    public void SetBullet(Material color)
+    public void SetBulletData(Material color,float bulletSpeed)
     {
-        hasTankSpawned = true;
         meshRenderer.material = color;
+        this.bulletSpeed = bulletSpeed;
+        canMove = true;
     }
 
     public void SetBulletController(BulletController bulletController)

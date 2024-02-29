@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class BulletView : MonoBehaviour
 {
+    [SerializeField] private GameObject bulletBlastPrefab;
     bool canMove = false;
     private MeshRenderer meshRenderer;
     private BulletController bulletController;
     private float bulletSpeed;
+
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -21,9 +23,14 @@ public class BulletView : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Buildings")
+        if (other.tag == "Buildings")
         {
-            Destroy(gameObject);
+            GameObject shellBlast = Instantiate(bulletBlastPrefab);
+            shellBlast.transform.position = transform.position;
+            shellBlast.GetComponent<ParticleSystem>().Play();
+            gameObject.SetActive(false);
+            Destroy(shellBlast, shellBlast.GetComponent<ParticleSystem>().main.duration);
+            Destroy(gameObject, shellBlast.GetComponent<ParticleSystem>().main.duration);
         }
     }
 

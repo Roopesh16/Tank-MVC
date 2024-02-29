@@ -18,7 +18,6 @@ public class TankSpawner : MonoBehaviour
 
     void Start()
     {
-
     }
 
     public void CreateTank(TankTypes tankTypes)

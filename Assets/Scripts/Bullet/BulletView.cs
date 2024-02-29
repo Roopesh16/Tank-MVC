@@ -26,4 +26,9 @@ public class BulletView : MonoBehaviour
         hasTankSpawned = true;
         meshRenderer.material = color;
     }
+
+    public void SetBulletController(BulletController bulletController)
+    {
+        this.bulletController = bulletController;
+    }
 }

@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class BulletController : MonoBehaviour
+public class BulletController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private BulletModel bulletModel;
+    private BulletView bulletView;
 
-    // Update is called once per frame
-    void Update()
+    public BulletController(BulletModel bulletModel,BulletView bulletView)
     {
+        this.bulletModel = bulletModel;
+        this.bulletView = bulletView;
         
     }
 }

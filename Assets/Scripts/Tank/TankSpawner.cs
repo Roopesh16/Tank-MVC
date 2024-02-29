@@ -15,6 +15,7 @@ public class TankSpawner : MonoBehaviour
 {
     [SerializeField] private TankView tankPrefab;
     [SerializeField] private List<Tank> tanks = new List<Tank>();
+    private Transform bulletSpawn;
 
     void Start()
     {
@@ -25,5 +26,11 @@ public class TankSpawner : MonoBehaviour
         int tankId = (int)tankTypes;
         TankModel tankModel = new TankModel(tanks[tankId].movementSpeed, tanks[tankId].rotationSpeed, tanks[tankId].tankType, tanks[tankId].color);
         TankController tankController = new TankController(tankModel, tankPrefab);
+        bulletSpawn = tankController.GetBulletSpawn();
+    }
+
+    public Transform GetBulletSpawn()
+    {
+        return bulletSpawn;
     }
 }

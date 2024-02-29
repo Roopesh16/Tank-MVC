@@ -33,4 +33,9 @@ public class TankController
     {
         return tankModel;
     }
+
+    public Transform GetBulletSpawn()
+    {
+        return tankView.GetSpawnPoint();
+    }
 }

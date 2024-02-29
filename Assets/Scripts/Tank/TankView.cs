@@ -5,6 +5,7 @@ public class TankView : MonoBehaviour
 {
     [SerializeField] private Rigidbody tankRb;
     [SerializeField] private MeshRenderer[] meshRenderers = new MeshRenderer[4];
+    [SerializeField] private Transform bulletSpawn;
     private TankController tankController;
     private float movement;
     private float rotation;
@@ -54,5 +55,10 @@ public class TankView : MonoBehaviour
         {
             meshRenderers[i].material = color;
         }
+    }
+
+    public Transform GetSpawnPoint()
+    {
+        return bulletSpawn;
     }
 }

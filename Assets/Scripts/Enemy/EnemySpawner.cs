@@ -5,24 +5,22 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private int enemyCount = 3;
-    [SerializeField] private EnemyView enemyPrefab;
     [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
-    [SerializeField] private EnemyScriptableObject[] enemyScriptableObject;
+    [SerializeField] private EnemyScriptableObject[] enemyList;
 
     public void PoolEnemyTanks()
     {
-        for (int i = 0; i < enemyCount;i++)
+        for (int i = 0; i < enemyCount; i++)
         {
             int id = Random.Range(0, 3);
-            EnemyModel enemyModel = new EnemyModel(enemyScriptableObject[id].enemyType,
-                                                   enemyScriptableObject[id].movementSpeed,
-                                                   enemyScriptableObject[id].rotationSpeed, 
-                                                   enemyScriptableObject[id].health, 
-                                                   enemyScriptableObject[id].firingRate, 
-                                                   enemyScriptableObject[id].stoppingDistance, 
-                                                   enemyScriptableObject[id].tankColor);
+            EnemyModel enemyModel = new EnemyModel(enemyList[id].enemyType,
+                                                   enemyList[id].movementSpeed,
+                                                   enemyList[id].rotationSpeed,
+                                                   enemyList[id].health,
+                                                   enemyList[id].firingRate,
+                                                   enemyList[id].stoppingDistance);
 
-            EnemyController enemyController = new EnemyController(enemyModel, enemyPrefab,spawnPositions[i]);
+            EnemyController enemyController = new EnemyController(enemyModel, enemyList[id].enemyPrefab, spawnPositions[i]);
 
         }
     }

@@ -54,7 +54,5 @@ public class BulletView : MonoBehaviour
     private void BlastImpact()
     {
         Collider[] hits =  Physics.OverlapSphere(transform.position, blastRadius, impactLayer);
-
-        Debug.Log(hits.Length);
     }
 }

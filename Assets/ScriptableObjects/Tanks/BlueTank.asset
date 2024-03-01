@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BlueTank
   m_EditorClassIdentifier: 
   tankType: 1
-  movement: 10
-  rotation: 10
+  movementSpeed: 15
+  rotationSpeed: 15
   tankColor: {fileID: 2100000, guid: ff21ff0ea9b18924bb1fdfbb0e58f5cb, type: 2}

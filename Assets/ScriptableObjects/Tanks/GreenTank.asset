@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GreenTank
   m_EditorClassIdentifier: 
   tankType: 0
-  movement: 20
-  rotation: 20
+  movementSpeed: 15
+  rotationSpeed: 10
   tankColor: {fileID: 2100000, guid: c39933e60e73205419d1f79a2af1fdac, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 public class TankScriptableObject : ScriptableObject
 {
     public TankTypes tankType;
-    public float movement;
-    public float rotation;
+    public float movementSpeed;
+    public float rotationSpeed;
     public Material tankColor;
 }

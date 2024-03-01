@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c7783f7ac2c374dac3810fe9403e6f, type: 3}
   m_Name: BlueBullet
   m_EditorClassIdentifier: 
-  bulletSpeed: 15
+  bulletSpeed: 30
   bulletType: 1
   bulletColor: {fileID: 2100000, guid: ff21ff0ea9b18924bb1fdfbb0e58f5cb, type: 2}
-  damageRadius: 5
+  blastRadius: 5
   firingRate: 0.2

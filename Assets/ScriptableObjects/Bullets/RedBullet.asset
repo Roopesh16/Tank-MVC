@@ -15,5 +15,5 @@ MonoBehaviour:
   bulletSpeed: 25
   bulletType: 2
   bulletColor: {fileID: 2100000, guid: 463052f3f7389124f9e7b34b0b931d0d, type: 2}
-  damageRadius: 15
+  blastRadius: 15
   firingRate: 2

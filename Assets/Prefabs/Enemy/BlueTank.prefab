@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1217037761787967314}
   - component: {fileID: 4884810670468055975}
   m_Layer: 0
-  m_Name: TankFree_Blue
+  m_Name: BlueTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

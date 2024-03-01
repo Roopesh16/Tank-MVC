@@ -17,8 +17,9 @@ public class EnemyView : MonoBehaviour
         navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.stoppingDistance = stoppingDistance;
 
-        var direction = transform.position - Vector3.zero;
-        
+        // var direction = transform.position - Vector3.zero;
+        // transform.forward = direction;
+
         navMeshAgent.SetDestination(Vector3.zero);
 
     }

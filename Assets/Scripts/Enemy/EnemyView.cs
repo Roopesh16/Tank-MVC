@@ -3,19 +3,23 @@ using UnityEngine.AI;
 
 public class EnemyView : MonoBehaviour
 {
-    private MeshRenderer meshRenderer;
     private NavMeshAgent navMeshAgent;
 
     private void Awake()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
-    public void SetEnemyView(Material material,float movementSpeed,float rotationSpeed ,float stoppingDistance)
+
+    public void SetEnemyView(float movementSpeed,float rotationSpeed ,float stoppingDistance)
     {
-        meshRenderer.material = material;
+        transform.LookAt(Vector3.zero, Vector3.up);
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.stoppingDistance = stoppingDistance;
+
+        var direction = transform.position - Vector3.zero;
+        
+        navMeshAgent.SetDestination(Vector3.zero);
+
     }
 }

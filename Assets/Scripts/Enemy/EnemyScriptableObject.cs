@@ -9,5 +9,5 @@ public class EnemyScriptableObject : ScriptableObject
     public int health;
     public float firingRate;
     public float stoppingDistance;
-    public Material tankColor;
+    public EnemyView enemyPrefab;
 }

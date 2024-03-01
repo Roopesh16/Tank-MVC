@@ -13,7 +13,7 @@ public class EnemyModel
     private EnemyController enemyController;
 
     public EnemyModel(EnemyType enemyType,float movementSpeed,float rotationSpeed,int health,float firingRate,
-                      float stoppingDistance,Material tankColor)
+                      float stoppingDistance)
     {
         this.enemyType = enemyType;
         this.movementSpeed = movementSpeed;
@@ -21,7 +21,6 @@ public class EnemyModel
         this.health = health;
         this.firingRate = firingRate;
         this.stoppingDistance = stoppingDistance;
-        this.tankColor = tankColor;
     }
 
     public void SetEnemyController(EnemyController enemyController)

@@ -609,15 +609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0135b3bdb57eb4e99a59c8a3d530d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2071300965633956494, guid: 7fe0aa733a2e8ca4fbcc704d8747a005,
+  bulletPrefab: {fileID: 6877112441465800571, guid: 5199f052dd9b8d147addefc5baa658e0,
     type: 3}
-  bullets:
-  - bulletSpeed: 10
-    bulletType: 0
-    color: {fileID: 2100000, guid: c39933e60e73205419d1f79a2af1fdac, type: 2}
-  - bulletSpeed: 12
-    bulletType: 1
-    color: {fileID: 2100000, guid: ff21ff0ea9b18924bb1fdfbb0e58f5cb, type: 2}
-  - bulletSpeed: 15
-    bulletType: 2
-    color: {fileID: 2100000, guid: 463052f3f7389124f9e7b34b0b931d0d, type: 2}
+  bulletList:
+  - {fileID: 11400000, guid: fe252768198f8f043bfa6623a03a4471, type: 2}
+  - {fileID: 11400000, guid: e31c7f50c9c0b8a4fafa0e486cbc7484, type: 2}
+  - {fileID: 11400000, guid: bc94713b5b177864a981b0edaa942e7d, type: 2}

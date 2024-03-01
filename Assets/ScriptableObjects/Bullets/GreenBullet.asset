@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6c7783f7ac2c374dac3810fe9403e6f, type: 3}
-  m_Name: BulletScriptableObject
+  m_Name: GreenBullet
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
+  bulletSpeed: 20
   bulletType: 0
-  bulletColor: {fileID: 0}
+  bulletColor: {fileID: 2100000, guid: c39933e60e73205419d1f79a2af1fdac, type: 2}
+  blastRadius: 10
+  firingRate: 0.5

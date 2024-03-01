@@ -1,34 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-[Serializable]
-public class Bullet
-{
-    public float bulletSpeed;
-    public BulletType bulletType;
-    public Material color;
-}
 
 public class BulletSpawner : MonoBehaviour
 {
     [SerializeField] private BulletView bulletPrefab;
-    [SerializeField] private List<Bullet> bullets = new List<Bullet>();
+    [SerializeField] private BulletScriptableObject[] bulletList;
     private bool hasTankSpawned = false;
     private BulletController bulletController;
 
-    public void CreateBullet(BulletType bulletTypes, Transform bulletSpawnPoint)
+    public void CreateBullet(TankTypes tankType, Transform bulletSpawnPoint)
     {
-        int bulId = (int)bulletTypes;
-        BulletModel bulletModel = new BulletModel(bullets[bulId].bulletSpeed, bullets[bulId].bulletType, bullets[bulId].color);
-        bulletController = new BulletController(bulletModel, bulletPrefab, bulletSpawnPoint,transform);
+        int bId = (int)tankType;
+        BulletModel bulletModel = new BulletModel(bulletList[bId].bulletSpeed,
+                                                 bulletList[bId].bulletType,
+                                                 bulletList[bId].bulletColor,
+                                                 bulletList[bId].blastRadius,
+                                                 bulletList[bId].firingRate);
+        bulletController = new BulletController(bulletModel, bulletPrefab, bulletSpawnPoint, transform);
         hasTankSpawned = true;
     }
 
     private void Update()
     {
-        if(hasTankSpawned && Input.GetKeyDown(KeyCode.Space))
+        if (hasTankSpawned && Input.GetKeyDown(KeyCode.Space))
         {
             bulletController.Shoot();
         }

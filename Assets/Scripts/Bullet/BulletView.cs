@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BulletView : MonoBehaviour
 {
     [SerializeField] private GameObject bulletBlastPrefab;
+    [SerializeField] private LayerMask impactLayer;
     bool canMove = false;
     private MeshRenderer meshRenderer;
     private BulletController bulletController;
+    private float blastRadius;
     private float bulletSpeed;
 
     private void Awake()
@@ -25,6 +28,7 @@ public class BulletView : MonoBehaviour
     {
         if (other.tag == "Buildings")
         {
+            BlastImpact();
             GameObject shellBlast = Instantiate(bulletBlastPrefab);
             shellBlast.transform.position = transform.position;
             shellBlast.GetComponent<ParticleSystem>().Play();
@@ -34,15 +38,21 @@ public class BulletView : MonoBehaviour
         }
     }
 
-    public void SetBulletData(Material color, float bulletSpeed)
+    public void SetBulletData(Material color, float bulletSpeed,float blastRadius)
     {
         meshRenderer.material = color;
         this.bulletSpeed = bulletSpeed;
+        this.blastRadius = blastRadius;
         canMove = true;
     }
 
     public void SetBulletController(BulletController bulletController)
     {
         this.bulletController = bulletController;
+    }
+
+    private void BlastImpact()
+    {
+        Collider[] hits =  Physics.OverlapSphere(transform.position, blastRadius, impactLayer);
     }
 }

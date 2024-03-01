@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletBlastPrefab: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
+  impactLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!54 &2065172661979488297
 Rigidbody:
   m_ObjectHideFlags: 0

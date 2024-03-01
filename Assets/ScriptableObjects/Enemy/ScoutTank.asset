@@ -18,4 +18,5 @@ MonoBehaviour:
   health: 80
   firingRate: 0.4
   stoppingDistance: 3
-  tankColor: {fileID: 2100000, guid: 36797ffef13d2934b9df4b1eee1d60ad, type: 2}
+  enemyPrefab: {fileID: 6269517645284830684, guid: ae98f3b2f9fb19e4dba07742ad8d6f4d,
+    type: 3}

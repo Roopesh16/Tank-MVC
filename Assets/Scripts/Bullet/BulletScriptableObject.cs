@@ -9,9 +9,3 @@ public class BulletScriptableObject : ScriptableObject
     public float damageRadius;
     public float firingRate;
 }
-
-[CreateAssetMenu(fileName ="BulletSOList", menuName ="Bullets/BulletSOList")]
-public class BulletSOList:ScriptableObject
-{
-    public BulletScriptableObject[] bullets = new BulletScriptableObject[3];
-}

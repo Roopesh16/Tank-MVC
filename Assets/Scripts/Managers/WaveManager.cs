@@ -7,6 +7,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<WaveScriptableObject> wavesList = new();
     public static WaveManager instance = null;
 
+    private int waveCount = 0;
+
     private void Awake()
     {
         if (instance == null)
@@ -23,6 +25,6 @@ public class WaveManager : MonoBehaviour
 
     public void SetupNewWave()
     {
-        enemySpawner.PoolEnemyTanks(GameManager.instance.GetBulletDamage());
+        enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.instance.GetBulletDamage());
     }
 }

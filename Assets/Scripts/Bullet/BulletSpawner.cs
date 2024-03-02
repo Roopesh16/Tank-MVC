@@ -26,6 +26,9 @@ public class BulletSpawner : MonoBehaviour
         {
             bulletController.Shoot();
         }
-
+    }
+    public int GetDamage()
+    {
+        return bulletController.GetDamage();
     }
 }

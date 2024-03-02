@@ -10,7 +10,6 @@ public class WaveManager : MonoBehaviour
     public static WaveManager instance = null;
 
     private int waveCount = 0;
-    private float timer = 0f;
 
     private void Awake()
     {

@@ -15,8 +15,8 @@ TagManager:
   - Bullet
   - Tank
   - Buildings
-  - 
-  - 
+  - EnemyTank
+  - EnemyBullet
   - 
   - 
   - 

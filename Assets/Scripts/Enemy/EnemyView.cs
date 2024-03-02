@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class EnemyView : MonoBehaviour
 {
+    private EnemyController enemyController;
     private NavMeshAgent navMeshAgent;
 
     private void Awake()
@@ -16,11 +17,11 @@ public class EnemyView : MonoBehaviour
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.stoppingDistance = stoppingDistance;
-
-        // var direction = transform.position - Vector3.zero;
-        // transform.forward = direction;
-
         navMeshAgent.SetDestination(Vector3.zero);
+    }
 
+    public void SetEnemyController(EnemyController enemyController)
+    {
+        this.enemyController = enemyController;
     }
 }

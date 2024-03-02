@@ -1,17 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private List<WaveScriptableObject> wavesList = new();
     public static WaveManager instance = null;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
-        else if(instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }

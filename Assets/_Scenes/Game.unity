@@ -702,6 +702,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 1404989285}
+  wavesList:
+  - {fileID: 11400000, guid: 917863a188d2d59419b40a9582d1e614, type: 2}
+  - {fileID: 11400000, guid: d7b43ffa6aef7d149b23c08471a25ba5, type: 2}
+  - {fileID: 11400000, guid: cc47dce90f395cb4ca9f914d1c332834, type: 2}
 --- !u!1 &1628116669
 GameObject:
   m_ObjectHideFlags: 0

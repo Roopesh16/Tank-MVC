@@ -8,18 +8,18 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
-        else if(instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
     }
 
-    public void SetBulletDamage(int bulletDamage)
+    public void SetupNewGame(int bulletDamage)
     {
         this.bulletDamage = bulletDamage;
     }

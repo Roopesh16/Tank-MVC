@@ -21,7 +21,10 @@ public class EnemyController
         enemyModel.health -= damage;
         
         if(enemyModel.health <= 0)
+        {
             enemyView.gameObject.SetActive(false);
+            WaveManager.instance.SpawnNextTank();
+        }
     }
 
     public void EnableTank()

@@ -30,9 +30,17 @@ public class EnemySpawner : MonoBehaviour
         SpawnNextTank();
     }
 
-    private void SpawnNextTank()
+    public void SpawnNextTank()
     {
+        if(currentEnemy == enemyControllers.Count)
+        {
+            currentEnemy = 0;
+            enemyControllers.Clear();
+            WaveManager.instance.SetupNewWave();
+            return;
+        }
         enemyControllers[currentEnemy].EnableTank();
+        currentEnemy++;
     }
 
 }

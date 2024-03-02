@@ -33,7 +33,7 @@ public class WaveManager : MonoBehaviour
             return;
         }
         UIManager.instance.SetWaveText(wavesList[waveCount].waveNumber);
-        await Task.Delay(3000);
+        await Task.Delay(GameManager.instance.UITimer);
         enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.instance.GetBulletDamage());
         waveCount++;
     }

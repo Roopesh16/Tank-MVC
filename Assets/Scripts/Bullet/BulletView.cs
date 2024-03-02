@@ -26,7 +26,7 @@ public class BulletView : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Buildings")
+        if (other.gameObject.CompareTag("Buildings"))
         {
             BlastImpact();
             GameObject shellBlast = Instantiate(bulletBlastPrefab);

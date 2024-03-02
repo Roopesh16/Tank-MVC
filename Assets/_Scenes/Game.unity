@@ -362,6 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b895858c3cff6c4b92e0ef03a1cfcd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveNumberText: {fileID: 862278438}
 --- !u!1 &862278436
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +825,7 @@ PrefabInstance:
     - target: {fileID: 3870283614252561372, guid: b02382b9e205b7f4d89a5c94e08a2724,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b02382b9e205b7f4d89a5c94e08a2724, type: 3}

@@ -11,8 +11,8 @@ public class EnemyController
         this.enemyModel = enemyModel;
         this.enemyView = GameObject.Instantiate<EnemyView>(enemyView,spawnPosition);
         this.enemyView.SetEnemyController(this);
-
         this.enemyView.SetEnemyView(enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance);
+        this.enemyView.gameObject.SetActive(false);
         this.damage = damage;
     }
 
@@ -21,6 +21,15 @@ public class EnemyController
         enemyModel.health -= damage;
         
         if(enemyModel.health <= 0)
+        {
             enemyView.gameObject.SetActive(false);
+            WaveManager.instance.SpawnNextTank();
+        }
+    }
+
+    public void EnableTank()
+    {
+        enemyView.gameObject.SetActive(true);
+        enemyView.StartTank();
     }
 }

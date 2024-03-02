@@ -29,11 +29,11 @@ public class WaveManager : MonoBehaviour
     {
         if (waveCount == wavesList.Count)
         {
-            Debug.Log("Game Over");
+            UIManager.instance.DisplayGameOver();
             return;
         }
-
-        await Task.Delay(3000);
+        UIManager.instance.SetWaveText(wavesList[waveCount].waveNumber);
+        await Task.Delay(GameManager.instance.UITimer);
         enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.instance.GetBulletDamage());
         waveCount++;
     }

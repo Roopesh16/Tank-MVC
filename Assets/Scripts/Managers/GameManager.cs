@@ -1,9 +1,15 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    private const int uiTimer = 3000;
 
+    public int UITimer
+    {
+        get { return uiTimer; }
+    }
 
     private int bulletDamage;
 

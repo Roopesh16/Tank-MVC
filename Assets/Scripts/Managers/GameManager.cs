@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
+
     private int bulletDamage;
 
     private void Awake()
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public void SetupNewGame(int bulletDamage)
     {
         this.bulletDamage = bulletDamage;
+        WaveManager.instance.SetupNewWave();
     }
 
     public int GetBulletDamage()

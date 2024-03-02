@@ -25,6 +25,17 @@ public class WaveManager : MonoBehaviour
 
     public void SetupNewWave()
     {
+        if (waveCount == wavesList.Count)
+        {
+            Debug.Log("Game Over");
+            return;
+        }
         enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.instance.GetBulletDamage());
+        waveCount++;
+    }
+
+    public void SpawnNextTank()
+    {
+        enemySpawner.SpawnNextTank();
     }
 }

@@ -35,4 +35,9 @@ public class UIManager : MonoBehaviour
         await Task.Delay(GameManager.instance.UITimer);
         waveNumberText.gameObject.SetActive(false);
     }
+
+    public void DisplayGameOver()
+    {
+        gameOverObject.SetActive(true);
+    }
 }

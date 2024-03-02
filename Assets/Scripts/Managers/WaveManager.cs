@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
     {
         if (waveCount == wavesList.Count)
         {
-            Debug.Log("Game Over");
+            UIManager.instance.DisplayGameOver();
             return;
         }
         UIManager.instance.SetWaveText(wavesList[waveCount].waveNumber);

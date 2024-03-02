@@ -8,24 +8,24 @@ public class TankSelection : MonoBehaviour
     public void GreenTankSelection()
     {
         tankSpawner.CreateTank(TankTypes.GREEN);
-        bulletSpawner.CreateBullet(TankTypes.GREEN,tankSpawner.GetBulletSpawn());
-        GameManager.instance.SetBulletDamage(bulletSpawner.GetDamage());
+        bulletSpawner.CreateBullet(TankTypes.GREEN, tankSpawner.GetBulletSpawn());
+        GameManager.instance.SetupNewGame(bulletSpawner.GetDamage());
         gameObject.SetActive(false);
     }
 
     public void RedTankSelection()
     {
         tankSpawner.CreateTank(TankTypes.RED);
-        bulletSpawner.CreateBullet(TankTypes.RED,tankSpawner.GetBulletSpawn());
-        GameManager.instance.SetBulletDamage(bulletSpawner.GetDamage());
+        bulletSpawner.CreateBullet(TankTypes.RED, tankSpawner.GetBulletSpawn());
+        GameManager.instance.SetupNewGame(bulletSpawner.GetDamage());
         gameObject.SetActive(false);
     }
 
     public void BlueTankSelection()
     {
         tankSpawner.CreateTank(TankTypes.BLUE);
-        bulletSpawner.CreateBullet(TankTypes.BLUE,tankSpawner.GetBulletSpawn());
-        GameManager.instance.SetBulletDamage(bulletSpawner.GetDamage());
+        bulletSpawner.CreateBullet(TankTypes.BLUE, tankSpawner.GetBulletSpawn());
+        GameManager.instance.SetupNewGame(bulletSpawner.GetDamage());
         gameObject.SetActive(false);
     }
 }

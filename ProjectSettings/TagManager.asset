@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Buildings
+  - EnemyTank
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

@@ -13,4 +13,13 @@ public class EnemyController
 
         this.enemyView.SetEnemyView(enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance);
     }
+
+    public void DecreaseHealth()
+    {
+        enemyModel.health -= 10;
+        Debug.Log(enemyModel.health);
+        
+        if(enemyModel.health <= 0)
+            enemyView.gameObject.SetActive(false);
+    }
 }

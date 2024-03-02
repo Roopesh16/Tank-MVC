@@ -11,7 +11,15 @@ public class EnemyView : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    public void SetEnemyView(float movementSpeed,float rotationSpeed ,float stoppingDistance)
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            enemyController.DecreaseHealth();
+        }
+    }
+
+    public void SetEnemyView(float movementSpeed, float rotationSpeed, float stoppingDistance)
     {
         transform.LookAt(Vector3.zero, Vector3.up);
         navMeshAgent.speed = movementSpeed;

@@ -9,6 +9,7 @@ public class EnemyController
     {
         this.enemyModel = enemyModel;
         this.enemyView = GameObject.Instantiate<EnemyView>(enemyView,spawnPosition);
+        this.enemyView.SetEnemyController(this);
 
         this.enemyView.SetEnemyView(enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance);
     }

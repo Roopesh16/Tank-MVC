@@ -24,9 +24,9 @@ public class BulletView : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Buildings")
+        if (other.gameObject.CompareTag("Buildings") || other.gameObject.CompareTag("EnemyTank"))
         {
             BlastImpact();
             GameObject shellBlast = Instantiate(bulletBlastPrefab);
@@ -38,7 +38,7 @@ public class BulletView : MonoBehaviour
         }
     }
 
-    public void SetBulletData(Material color, float bulletSpeed,float blastRadius)
+    public void SetBulletData(Material color, float bulletSpeed, float blastRadius)
     {
         meshRenderer.material = color;
         this.bulletSpeed = bulletSpeed;
@@ -53,6 +53,6 @@ public class BulletView : MonoBehaviour
 
     private void BlastImpact()
     {
-        Collider[] hits =  Physics.OverlapSphere(transform.position, blastRadius, impactLayer);
+        Collider[] hits = Physics.OverlapSphere(transform.position, blastRadius, impactLayer);
     }
 }

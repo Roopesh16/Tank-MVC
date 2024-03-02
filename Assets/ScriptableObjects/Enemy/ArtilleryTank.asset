@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ae858f0f3cf9b48a9aaad91ede27d8, type: 3}
+  m_Name: ArtilleryTank
+  m_EditorClassIdentifier: 
+  enemyType: 2
+  movementSpeed: 25
+  rotationSpeed: 25
+  health: 100
+  firingRate: 1.5
+  stoppingDistance: 10
+  enemyPrefab: {fileID: 5478013845739148818, guid: a30540c41d7d5ed4281d72b4916afb5e,
+    type: 3}

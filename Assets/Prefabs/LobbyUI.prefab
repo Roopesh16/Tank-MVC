@@ -281,6 +281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankSpawner: {fileID: 0}
+  bulletSpawner: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!1 &3870283614366464071
 GameObject:
   m_ObjectHideFlags: 0

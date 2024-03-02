@@ -11,7 +11,7 @@ public class TankSelection : MonoBehaviour
         tankSpawner.CreateTank(TankTypes.GREEN);
         bulletSpawner.CreateBullet(TankTypes.GREEN,tankSpawner.GetBulletSpawn());
         gameObject.SetActive(false);
-        enemySpawner.PoolEnemyTanks();
+        enemySpawner.PoolEnemyTanks(bulletSpawner.GetDamage());
     }
 
     public void RedTankSelection()
@@ -19,7 +19,7 @@ public class TankSelection : MonoBehaviour
         tankSpawner.CreateTank(TankTypes.RED);
         bulletSpawner.CreateBullet(TankTypes.RED,tankSpawner.GetBulletSpawn());
         gameObject.SetActive(false);
-        enemySpawner.PoolEnemyTanks();
+        enemySpawner.PoolEnemyTanks(bulletSpawner.GetDamage());
     }
 
     public void BlueTankSelection()
@@ -27,6 +27,6 @@ public class TankSelection : MonoBehaviour
         tankSpawner.CreateTank(TankTypes.BLUE);
         bulletSpawner.CreateBullet(TankTypes.BLUE,tankSpawner.GetBulletSpawn());
         gameObject.SetActive(false);
-        enemySpawner.PoolEnemyTanks();
+        enemySpawner.PoolEnemyTanks(bulletSpawner.GetDamage());
     }
 }

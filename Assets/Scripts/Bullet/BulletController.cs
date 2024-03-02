@@ -27,4 +27,9 @@ public class BulletController
         bullet.transform.SetParent(parentPosition);
         bullet.SetBulletData(bulletModel.color, bulletModel.bulletSpeed,bulletModel.blastRadius);
     }
+
+    public int GetDamage()
+    {
+        return bulletModel.damage;
+    }
 }

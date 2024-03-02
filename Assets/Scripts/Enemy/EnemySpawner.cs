@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
     [SerializeField] private EnemyScriptableObject[] enemyList;
 
-    public void PoolEnemyTanks()
+    public void PoolEnemyTanks(int damage)
     {
         for (int i = 0; i < enemyCount; i++)
         {
@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
                                                    enemyList[id].firingRate,
                                                    enemyList[id].stoppingDistance);
 
-            EnemyController enemyController = new EnemyController(enemyModel, enemyList[id].enemyPrefab, spawnPositions[i]);
+            EnemyController enemyController = new EnemyController(enemyModel, enemyList[id].enemyPrefab, spawnPositions[i],damage);
 
         }
     }

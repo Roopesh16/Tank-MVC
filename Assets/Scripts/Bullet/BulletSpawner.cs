@@ -14,7 +14,8 @@ public class BulletSpawner : MonoBehaviour
                                                  bulletList[bId].bulletType,
                                                  bulletList[bId].bulletColor,
                                                  bulletList[bId].blastRadius,
-                                                 bulletList[bId].firingRate);
+                                                 bulletList[bId].firingRate,
+                                                 bulletList[bId].damage);
         bulletController = new BulletController(bulletModel, bulletPrefab, bulletSpawnPoint, transform);
         hasTankSpawned = true;
     }
@@ -25,6 +26,9 @@ public class BulletSpawner : MonoBehaviour
         {
             bulletController.Shoot();
         }
-
+    }
+    public int GetDamage()
+    {
+        return bulletController.GetDamage();
     }
 }

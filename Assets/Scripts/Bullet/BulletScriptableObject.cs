@@ -8,4 +8,5 @@ public class BulletScriptableObject : ScriptableObject
     public Material bulletColor;
     public float blastRadius;
     public float firingRate;
+    public int damage;
 }

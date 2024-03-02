@@ -25,11 +25,15 @@ public class EnemyView : MonoBehaviour
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.stoppingDistance = stoppingDistance;
-        navMeshAgent.SetDestination(Vector3.zero);
     }
 
     public void SetEnemyController(EnemyController enemyController)
     {
         this.enemyController = enemyController;
+    }
+
+    public void StartTank()
+    {
+        navMeshAgent.SetDestination(Vector3.zero);
     }
 }

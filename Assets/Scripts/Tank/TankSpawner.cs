@@ -12,7 +12,7 @@ public class TankSpawner : MonoBehaviour
     public void CreateTank(TankTypes tankTypes)
     {
         int tankId = (int)tankTypes;
-        TankModel tankModel = new TankModel(tankList[tankId].movementSpeed, tankList[tankId].rotationSpeed, tankList[tankId].tankType, tankList[tankId].tankColor);
+        TankModel tankModel = new TankModel(tankList[tankId].movementSpeed, tankList[tankId].rotationSpeed, tankList[tankId].tankType, tankList[tankId].tankColor, tankList[tankId].tankHealth);
         tankController = new TankController(tankModel, tankPrefab);
         bulletSpawn = tankController.GetBulletSpawn();
     }

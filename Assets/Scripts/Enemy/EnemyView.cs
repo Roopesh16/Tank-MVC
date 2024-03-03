@@ -32,12 +32,10 @@ public class EnemyView : MonoBehaviour
             {
                 navMeshAgent.isStopped = false;
                 navMeshAgent.SetDestination(playerTank.transform.position);
-
             }
             else
             {
                 navMeshAgent.isStopped = true;
-
             }
         }
     }

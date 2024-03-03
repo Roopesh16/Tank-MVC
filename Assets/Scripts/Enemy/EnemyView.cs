@@ -5,10 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyView : MonoBehaviour
 {
+    [SerializeField] private Transform bulletSpawnPosition;
+    [SerializeField] private float maxDistance;
+    [SerializeField] private LayerMask playerLayer;
     private EnemyController enemyController;
     private NavMeshAgent navMeshAgent;
     private TankView playerTank;
     private bool canTrack = false;
+    private Ray ray;
 
     private void Awake()
     {
@@ -38,6 +42,15 @@ public class EnemyView : MonoBehaviour
             {
                 navMeshAgent.isStopped = true;
             }
+        }
+    }
+
+    private async void FixedUpdate()
+    {
+        ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, maxDistance, playerLayer))
+        {
+            enemyController.SpawnBullets(bulletSpawnPosition);
         }
     }
 

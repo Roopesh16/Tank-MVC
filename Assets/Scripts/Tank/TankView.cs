@@ -20,10 +20,10 @@ public class TankView : MonoBehaviour
     {
         Movement();
 
-        if(movement!=0)
+        if (movement != 0)
             tankController.Move(movement, tankController.GetTankModel().movement);
-        
-        if(rotation!=0)
+
+        if (rotation != 0)
             tankController.Rotate(rotation, tankController.GetTankModel().rotation);
     }
 
@@ -53,7 +53,7 @@ public class TankView : MonoBehaviour
 
     public void SetColor(Material color)
     {
-        for (int i = 0; i < 4;i++)
+        for (int i = 0; i < 4; i++)
         {
             meshRenderers[i].material = color;
         }
@@ -62,5 +62,10 @@ public class TankView : MonoBehaviour
     public Transform GetSpawnPoint()
     {
         return bulletSpawn;
+    }
+
+    public Transform GetPosition()
+    {
+        return transform;
     }
 }

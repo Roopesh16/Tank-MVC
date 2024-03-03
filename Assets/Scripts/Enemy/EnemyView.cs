@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +11,9 @@ public class EnemyView : MonoBehaviour
     private TankView playerTank;
     private bool canTrack = false;
     private Ray ray;
+    private float timer = 0f;
+    private float maxTime = 2f;
+    private bool canStartTimer = false;
 
     private void Awake()
     {
@@ -25,10 +26,21 @@ public class EnemyView : MonoBehaviour
         {
             enemyController.DecreaseHealth();
         }
+
     }
 
     private void Update()
     {
+        if (canStartTimer)
+        {
+            timer += Time.deltaTime;
+            if (timer >= maxTime)
+            {
+                timer = 0f;
+                canStartTimer = false;
+            }
+        }
+        
         if (canTrack)
         {
             Vector3 direction = playerTank.transform.position - transform.position;
@@ -45,12 +57,19 @@ public class EnemyView : MonoBehaviour
         }
     }
 
-    private async void FixedUpdate()
+    private void FixedUpdate()
     {
-        ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, maxDistance, playerLayer))
+        if (canTrack)
         {
-            enemyController.SpawnBullets(bulletSpawnPosition);
+            ray = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(ray, navMeshAgent.stoppingDistance, playerLayer))
+            {
+                if (timer == 0f)
+                {
+                    enemyController.SpawnBullets(bulletSpawnPosition);
+                    canStartTimer = true;
+                }
+            }
         }
     }
 

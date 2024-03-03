@@ -16,7 +16,7 @@ MonoBehaviour:
   movementSpeed: 20
   rotationSpeed: 10
   health: 150
-  firingRate: 1
+  firingRate: 1.5
   stoppingDistance: 10
   enemyPrefab: {fileID: -5201033995727890830, guid: 997823ade0e2fc249a876fa159f69cc3,
     type: 3}

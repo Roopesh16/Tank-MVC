@@ -50,8 +50,8 @@ public class TankController
 
         if (tankModel.health <= 0)
         {
-            GameManager.instance.SetNewCamera(tankView.transform.position, tankView.transform.eulerAngles);
-            GameObject.Destroy(tankView.gameObject);
+            GameManager.instance.SetNewCamera();
+            tankView.gameObject.SetActive(false);
             UIManager.instance.DisplayGameOver();
         }
     }

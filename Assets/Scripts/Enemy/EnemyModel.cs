@@ -11,11 +11,12 @@ public class EnemyModel
     public Material tankColor;
     public float bulletSpeed;
     public EnemyBulletView enemyBullet;
+    public int bulletDamage;
 
     private EnemyController enemyController;
 
     public EnemyModel(EnemyType enemyType,float movementSpeed,float rotationSpeed,int health,float firingRate,
-                      float stoppingDistance,float bulletSpeed,EnemyBulletView enemyBullet)
+                      float stoppingDistance,float bulletSpeed,EnemyBulletView enemyBullet,int bulletDamage)
     {
         this.enemyType = enemyType;
         this.movementSpeed = movementSpeed;
@@ -25,6 +26,7 @@ public class EnemyModel
         this.stoppingDistance = stoppingDistance;
         this.bulletSpeed = bulletSpeed;
         this.enemyBullet = enemyBullet;
+        this.bulletDamage = bulletDamage;
     }
 
     public void SetEnemyController(EnemyController enemyController)

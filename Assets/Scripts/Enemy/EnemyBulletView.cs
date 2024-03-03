@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyBulletView : MonoBehaviour
 {
+    [SerializeField] private GameObject tankExplosionParticle;
     private float bulletSpeed;
     private bool canMove = false;
     private float timer = 0f;
@@ -22,9 +23,14 @@ public class EnemyBulletView : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Player"))
-            Debug.Log("hit");
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameObject particle = Instantiate(tankExplosionParticle, transform);
+            particle.GetComponent<ParticleSystem>().Play();
+            gameObject.SetActive(false);
+            Destroy(particle, particle.GetComponent<ParticleSystem>().main.duration);
+            Destroy(gameObject, particle.GetComponent<ParticleSystem>().main.duration);
+        }
     }
 
     public void SetEnemyBulletView(Vector3 forward, float bulletSpeed)

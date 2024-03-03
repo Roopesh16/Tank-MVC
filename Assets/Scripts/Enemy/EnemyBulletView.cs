@@ -25,7 +25,8 @@ public class EnemyBulletView : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject particle = Instantiate(tankExplosionParticle, transform);
+            GameObject particle = Instantiate(tankExplosionParticle);
+            particle.transform.position = transform.position;
             particle.GetComponent<ParticleSystem>().Play();
             gameObject.SetActive(false);
             Destroy(particle, particle.GetComponent<ParticleSystem>().main.duration);

@@ -17,6 +17,6 @@ MonoBehaviour:
   rotationSpeed: 25
   health: 100
   firingRate: 1.5
-  stoppingDistance: 10
+  stoppingDistance: 20
   enemyPrefab: {fileID: 5478013845739148818, guid: a30540c41d7d5ed4281d72b4916afb5e,
     type: 3}

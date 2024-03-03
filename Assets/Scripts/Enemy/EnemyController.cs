@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController
@@ -12,9 +13,10 @@ public class EnemyController
         this.enemyModel = enemyModel;
         this.enemyView = GameObject.Instantiate<EnemyView>(enemyView, spawnPosition);
         this.enemyView.SetEnemyController(this);
-        this.enemyView.SetEnemyView(tankView, enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance,enemyModel.firingRate);
+        this.enemyView.SetEnemyView(tankView, enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance, enemyModel.firingRate);
         this.enemyView.gameObject.SetActive(false);
         this.damage = damage;
+        GameManager.instance.SetEnemyDamage(enemyModel.bulletDamage);
     }
 
     public void DecreaseHealth()

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     }
 
     private int bulletDamage;
+    private int enemyDamage;
 
     private void Awake()
     {
@@ -36,5 +37,22 @@ public class GameManager : MonoBehaviour
     public int GetBulletDamage()
     {
         return bulletDamage;
+    }
+
+    public int GetEnemyDamage()
+    {
+        return enemyDamage;
+    }
+
+    public void SetEnemyDamage(int enemyDamage)
+    {
+        this.enemyDamage = enemyDamage;
+    }
+
+    public void SetNewCamera(Vector3 position, Vector3 angles)
+    {
+        newCamera.gameObject.SetActive(true);
+        newCamera.transform.position = position;
+        newCamera.transform.eulerAngles = angles;
     }
 }

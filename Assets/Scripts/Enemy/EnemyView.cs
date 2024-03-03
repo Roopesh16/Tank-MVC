@@ -40,7 +40,7 @@ public class EnemyView : MonoBehaviour
                 canStartTimer = false;
             }
         }
-        
+
         if (canTrack)
         {
             Vector3 direction = playerTank.transform.position - transform.position;
@@ -73,9 +73,10 @@ public class EnemyView : MonoBehaviour
         }
     }
 
-    public void SetEnemyView(TankView playerTank, float movementSpeed, float rotationSpeed, float stoppingDistance)
+    public void SetEnemyView(TankView playerTank, float movementSpeed, float rotationSpeed, float stoppingDistance, float maxTime)
     {
         this.playerTank = playerTank;
+        this.maxTime = maxTime;
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.stoppingDistance = stoppingDistance;

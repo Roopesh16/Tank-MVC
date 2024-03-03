@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401b87d66156ff84cb1fead351e2087d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tankExplosionParticle: {fileID: 151086, guid: 83b5bb0521ea94340aeb7a11ab4ea689,
+    type: 3}
 --- !u!65 &-5730454810905576275
 BoxCollider:
   m_ObjectHideFlags: 0

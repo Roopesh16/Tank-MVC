@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class EnemyController
@@ -31,5 +32,11 @@ public class EnemyController
     {
         enemyView.gameObject.SetActive(true);
         enemyView.StartTank();
+    }
+
+    public async void SpawnBullets(Transform bulletSpawnPosition)
+    {
+        EnemyBulletView enemyBulletView = GameObject.Instantiate<EnemyBulletView>(enemyModel.enemyBullet, bulletSpawnPosition);
+        enemyBulletView.SetEnemyBulletView(enemyView.transform.forward, enemyModel.bulletSpeed);
     }
 }

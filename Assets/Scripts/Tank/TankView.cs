@@ -63,9 +63,4 @@ public class TankView : MonoBehaviour
     {
         return bulletSpawn;
     }
-
-    public Transform GetPosition()
-    {
-        return transform;
-    }
 }

@@ -23,7 +23,7 @@ public class EnemyView : MonoBehaviour
     public void SetEnemyView(TankView playerTank, float movementSpeed, float rotationSpeed, float stoppingDistance)
     {
         this.playerTank = playerTank;
-        transform.LookAt(Vector3.zero, Vector3.up);
+        transform.LookAt(this.playerTank.GetPosition(), Vector3.up);
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.stoppingDistance = stoppingDistance;
@@ -36,6 +36,6 @@ public class EnemyView : MonoBehaviour
 
     public void StartTank()
     {
-        navMeshAgent.SetDestination(Vector3.zero);
+        navMeshAgent.SetDestination(playerTank.GetPosition().position);
     }
 }

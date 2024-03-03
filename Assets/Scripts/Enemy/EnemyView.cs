@@ -27,15 +27,24 @@ public class EnemyView : MonoBehaviour
         if (canTrack)
         {
             Vector3 direction = playerTank.transform.position - transform.position;
-            transform.LookAt(direction);
-            navMeshAgent.SetDestination(playerTank.transform.position);
+            transform.forward = direction;
+            if (Vector3.Magnitude(direction) > navMeshAgent.stoppingDistance)
+            {
+                navMeshAgent.isStopped = false;
+                navMeshAgent.SetDestination(playerTank.transform.position);
+
+            }
+            else
+            {
+                navMeshAgent.isStopped = true;
+
+            }
         }
     }
 
     public void SetEnemyView(TankView playerTank, float movementSpeed, float rotationSpeed, float stoppingDistance)
     {
         this.playerTank = playerTank;
-        transform.LookAt(this.playerTank.transform, Vector3.up);
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.stoppingDistance = stoppingDistance;

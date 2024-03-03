@@ -24,9 +24,10 @@ public class EnemySpawner : MonoBehaviour
                                                        enemyList[id].firingRate,
                                                        enemyList[id].stoppingDistance,
                                                        enemyList[id].bulletSpeed,
-                                                       enemyList[id].bulletPrefab);
+                                                       enemyList[id].bulletPrefab,
+                                                       enemyList[id].bulletDamage);
 
-            EnemyController enemyController = new EnemyController(playerTank,enemyModel, enemyList[id].enemyPrefab, 
+            EnemyController enemyController = new EnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
                                                                     spawnPositions[i], damage);
             enemyControllers.Add(enemyController);
         }
@@ -36,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnNextTank()
     {
-        if(currentEnemy == enemyControllers.Count)
+        if (currentEnemy == enemyControllers.Count)
         {
             currentEnemy = 0;
             enemyControllers.Clear();

@@ -12,8 +12,9 @@ public class EnemyBulletView : MonoBehaviour
         }
     }
 
-    public void SetBulletSpeed(float bulletSpeed)
+    public void SetEnemyBulletView(Vector3 forward, float bulletSpeed)
     {
+        transform.forward = forward;
         this.bulletSpeed = bulletSpeed;
         canMove = true;
     }

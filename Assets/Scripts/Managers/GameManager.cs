@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     private const int uiTimer = 3000;
 
+    public Camera newCamera;
+
     public int UITimer
     {
         get { return uiTimer; }
@@ -25,6 +27,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
+    }
+
+    void Start()
+    {
+        newCamera.gameObject.SetActive(false);
     }
 
     public void SetupNewGame(TankController tankController, int bulletDamage)

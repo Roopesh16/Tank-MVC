@@ -20,3 +20,6 @@ MonoBehaviour:
   stoppingDistance: 20
   enemyPrefab: {fileID: 5478013845739148818, guid: a30540c41d7d5ed4281d72b4916afb5e,
     type: 3}
+  bulletSpeed: 10
+  bulletPrefab: {fileID: 2271200741072973141, guid: 6f4d29cfd8b2b4744bcabc5437eeb536,
+    type: 3}

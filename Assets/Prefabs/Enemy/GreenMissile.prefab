@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8383733416223251169}
   - component: {fileID: 3096762858278074410}
   - component: {fileID: 6470566667446763459}
+  - component: {fileID: -2925366535391439809}
   m_Layer: 10
   m_Name: GreenMissile
   m_TagString: EnemyBullet
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2925366535391439809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299071353543684385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401b87d66156ff84cb1fead351e2087d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

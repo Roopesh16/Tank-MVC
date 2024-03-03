@@ -26,9 +26,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void SetupNewGame(int bulletDamage)
+    public void SetupNewGame(TankController tankController, int bulletDamage)
     {
         this.bulletDamage = bulletDamage;
+        WaveManager.instance.SetTankController(tankController);
         WaveManager.instance.SetupNewWave();
     }
 

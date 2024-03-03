@@ -38,4 +38,9 @@ public class TankController
     {
         return tankView.GetSpawnPoint();
     }
+
+    public TankView GetTankView()
+    {
+        return tankView;
+    }
 }

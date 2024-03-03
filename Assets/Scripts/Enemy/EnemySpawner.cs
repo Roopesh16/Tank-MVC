@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     private List<EnemyController> enemyControllers = new();
 
     private int currentEnemy = 0;
+    private TankView playerTank;
 
     public void PoolEnemyTanks(int enemyCount, int damage)
     {
@@ -23,7 +24,8 @@ public class EnemySpawner : MonoBehaviour
                                                        enemyList[id].firingRate,
                                                        enemyList[id].stoppingDistance);
 
-            EnemyController enemyController = new EnemyController(enemyModel, enemyList[id].enemyPrefab, spawnPositions[i], damage);
+            EnemyController enemyController = new EnemyController(playerTank,enemyModel, enemyList[id].enemyPrefab, 
+                                                                    spawnPositions[i], damage);
             enemyControllers.Add(enemyController);
         }
 
@@ -41,6 +43,11 @@ public class EnemySpawner : MonoBehaviour
         }
         enemyControllers[currentEnemy].EnableTank();
         currentEnemy++;
+    }
+
+    public void SetupPlayerTank(TankController tankController)
+    {
+        playerTank = tankController.GetTankView();
     }
 
 }

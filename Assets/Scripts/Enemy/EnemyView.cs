@@ -5,6 +5,7 @@ public class EnemyView : MonoBehaviour
 {
     private EnemyController enemyController;
     private NavMeshAgent navMeshAgent;
+    private TankView playerTank;
 
     private void Awake()
     {
@@ -19,8 +20,9 @@ public class EnemyView : MonoBehaviour
         }
     }
 
-    public void SetEnemyView(float movementSpeed, float rotationSpeed, float stoppingDistance)
+    public void SetEnemyView(TankView playerTank, float movementSpeed, float rotationSpeed, float stoppingDistance)
     {
+        this.playerTank = playerTank;
         transform.LookAt(Vector3.zero, Vector3.up);
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;

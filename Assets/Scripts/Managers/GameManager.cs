@@ -56,10 +56,8 @@ public class GameManager : MonoBehaviour
         this.enemyDamage = enemyDamage;
     }
 
-    public void SetNewCamera(Vector3 position, Vector3 angles)
+    public void SetNewCamera()
     {
         newCamera.gameObject.SetActive(true);
-        newCamera.transform.position = position;
-        newCamera.transform.eulerAngles = angles;
     }
 }

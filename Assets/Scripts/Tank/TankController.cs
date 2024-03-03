@@ -43,4 +43,16 @@ public class TankController
     {
         return tankView;
     }
+
+    public void DecreaseHealth()
+    {
+        tankModel.health -= GameManager.instance.GetEnemyDamage();
+
+        if (tankModel.health <= 0)
+        {
+            GameManager.instance.SetNewCamera(tankView.transform.position, tankView.transform.eulerAngles);
+            GameObject.Destroy(tankView.gameObject);
+            UIManager.instance.DisplayGameOver();
+        }
+    }
 }

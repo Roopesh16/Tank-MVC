@@ -22,7 +22,9 @@ public class EnemySpawner : MonoBehaviour
                                                        enemyList[id].rotationSpeed,
                                                        enemyList[id].health,
                                                        enemyList[id].firingRate,
-                                                       enemyList[id].stoppingDistance);
+                                                       enemyList[id].stoppingDistance,
+                                                       enemyList[id].bulletSpeed,
+                                                       enemyList[id].bulletPrefab);
 
             EnemyController enemyController = new EnemyController(playerTank,enemyModel, enemyList[id].enemyPrefab, 
                                                                     spawnPositions[i], damage);

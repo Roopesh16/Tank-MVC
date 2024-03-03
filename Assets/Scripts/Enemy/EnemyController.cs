@@ -34,7 +34,7 @@ public class EnemyController
         enemyView.StartTank();
     }
 
-    public async void SpawnBullets(Transform bulletSpawnPosition)
+    public void SpawnBullets(Transform bulletSpawnPosition)
     {
         EnemyBulletView enemyBulletView = GameObject.Instantiate<EnemyBulletView>(enemyModel.enemyBullet, bulletSpawnPosition);
         enemyBulletView.SetEnemyBulletView(enemyView.transform.forward, enemyModel.bulletSpeed);

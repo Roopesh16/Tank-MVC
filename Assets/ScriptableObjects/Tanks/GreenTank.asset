@@ -16,3 +16,4 @@ MonoBehaviour:
   movementSpeed: 15
   rotationSpeed: 50
   tankColor: {fileID: 2100000, guid: c39933e60e73205419d1f79a2af1fdac, type: 2}
+  tankHealth: 200

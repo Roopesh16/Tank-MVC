@@ -42,4 +42,9 @@ public class WaveManager : MonoBehaviour
     {
         enemySpawner.SpawnNextTank();
     }
+
+    public void SetTankController(TankController tankController)
+    {
+        enemySpawner.SetupPlayerTank(tankController);
+    }
 }

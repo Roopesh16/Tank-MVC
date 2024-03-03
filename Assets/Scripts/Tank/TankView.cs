@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,24 +8,33 @@ public class TankView : MonoBehaviour
     [SerializeField] private MeshRenderer[] meshRenderers = new MeshRenderer[4];
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private Transform cameraPosition;
+
     private TankController tankController;
     private float movement;
     private float rotation;
 
-    void Start()
+    private void Start()
     {
         SetupCamera();
     }
 
-    void Update()
+    private void Update()
     {
         Movement();
 
-        if(movement!=0)
+        if (movement != 0)
             tankController.Move(movement, tankController.GetTankModel().movement);
-        
-        if(rotation!=0)
+
+        if (rotation != 0)
             tankController.Rotate(rotation, tankController.GetTankModel().rotation);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            tankController.DecreaseHealth();
+        }
     }
 
     public void SetTankController(TankController tankController)
@@ -53,7 +63,7 @@ public class TankView : MonoBehaviour
 
     public void SetColor(Material color)
     {
-        for (int i = 0; i < 4;i++)
+        for (int i = 0; i < 4; i++)
         {
             meshRenderers[i].material = color;
         }

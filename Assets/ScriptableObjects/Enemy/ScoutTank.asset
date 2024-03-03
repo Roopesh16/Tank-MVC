@@ -16,7 +16,11 @@ MonoBehaviour:
   movementSpeed: 35
   rotationSpeed: 35
   health: 80
-  firingRate: 0.4
-  stoppingDistance: 3
+  firingRate: 1
+  stoppingDistance: 15
   enemyPrefab: {fileID: 6269517645284830684, guid: ae98f3b2f9fb19e4dba07742ad8d6f4d,
+    type: 3}
+  bulletSpeed: 100
+  bulletDamage: 50
+  bulletPrefab: {fileID: -3297435054376950857, guid: ebc8ef3e1eaa76c44aacba4e5ec67bf4,
     type: 3}

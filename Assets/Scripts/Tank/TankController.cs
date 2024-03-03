@@ -38,4 +38,21 @@ public class TankController
     {
         return tankView.GetSpawnPoint();
     }
+
+    public TankView GetTankView()
+    {
+        return tankView;
+    }
+
+    public void DecreaseHealth()
+    {
+        tankModel.health -= GameManager.instance.GetEnemyDamage();
+
+        if (tankModel.health <= 0)
+        {
+            GameManager.instance.SetNewCamera();
+            tankView.gameObject.SetActive(false);
+            UIManager.instance.DisplayGameOver();
+        }
+    }
 }

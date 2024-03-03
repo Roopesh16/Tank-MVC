@@ -7,4 +7,5 @@ public class TankScriptableObject : ScriptableObject
     public float movementSpeed;
     public float rotationSpeed;
     public Material tankColor;
+    public int tankHealth;
 }

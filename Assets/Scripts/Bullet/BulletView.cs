@@ -28,7 +28,7 @@ public class BulletView : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Buildings") || other.gameObject.CompareTag("EnemyTank"))
         {
-            BlastImpact();
+            // BlastImpact();
             GameObject shellBlast = Instantiate(bulletBlastPrefab);
             shellBlast.transform.position = transform.position;
             shellBlast.GetComponent<ParticleSystem>().Play();

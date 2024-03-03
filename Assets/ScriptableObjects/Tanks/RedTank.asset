@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankType: 2
   movementSpeed: 10
-  rotationSpeed: 10
+  rotationSpeed: 50
   tankColor: {fileID: 2100000, guid: 463052f3f7389124f9e7b34b0b931d0d, type: 2}
+  tankHealth: 200

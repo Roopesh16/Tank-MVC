@@ -10,4 +10,6 @@ public class EnemyScriptableObject : ScriptableObject
     public float firingRate;
     public float stoppingDistance;
     public EnemyView enemyPrefab;
+    public float bulletSpeed;
+    public EnemyBulletView bulletPrefab;
 }

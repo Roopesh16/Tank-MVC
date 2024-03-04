@@ -32,13 +32,12 @@ public class GameManager : GenericMonoSingleton<GameManager>
 
     private void OnEnable()
     {
-        uIManager.OnEnable();
         EventManager.Instance.OnGameOver.AddListener(SetNewCamera);
     }
 
     private void OnDisable()
     {
-        uIManager.OnDisable();
+        uIManager.Disable();
         EventManager.Instance.OnGameOver.RemoveListener(SetNewCamera);
     }
 

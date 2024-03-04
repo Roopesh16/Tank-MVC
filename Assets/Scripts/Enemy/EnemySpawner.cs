@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         {
             currentEnemy = 0;
             enemyControllers.Clear();
-            WaveManager.instance.SetupNewWave();
+            GameManager.instance.SetupNewWave();
             return;
         }
         enemyControllers[currentEnemy].EnableTank();

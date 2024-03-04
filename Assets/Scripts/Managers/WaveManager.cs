@@ -17,7 +17,7 @@ public class WaveManager
     {
         if (waveCount == wavesList.Count)
         {
-            UIManager.instance.DisplayGameOver();
+            GameManager.Instance.eventManager.OnGameOver.InvokeEvent();
             return;
         }
 

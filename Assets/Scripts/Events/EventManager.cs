@@ -10,5 +10,6 @@ public class EventManager
     public EventManager()
     {
         OnGameOver = new EventController();
+        OnNewWave = new EventController();
     }
 }

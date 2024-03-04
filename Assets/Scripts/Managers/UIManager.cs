@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Threading.Tasks;
 
 public class UIManager : MonoBehaviour
 {
@@ -28,11 +27,14 @@ public class UIManager : MonoBehaviour
         gameOverObject.SetActive(false);
     }
 
-    public async void SetWaveText(int waveNumber)
+    public void SetWaveText()
     {
         waveNumberText.gameObject.SetActive(true);
-        waveNumberText.text = "WAVE NO. " + waveNumber;
-        await Task.Delay(GameManager.instance.UITimer);
+        waveNumberText.text = "WAVE NO. " + WaveManager.instance.GetWaveNumber();
+    }
+
+    public void DisableWaveText()
+    {
         waveNumberText.gameObject.SetActive(false);
     }
 

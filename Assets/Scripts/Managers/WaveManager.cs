@@ -11,6 +11,17 @@ public class WaveManager
     {
         this.enemySpawner = enemySpawner;
         this.wavesList = wavesList;
+        OnEnable();
+    }
+
+    public void OnEnable()
+    {
+        GameManager.Instance.eventManager.OnNewWave.AddListener(StartNewWave);
+    }
+
+    public void OnDisable()
+    {
+        GameManager.Instance.eventManager.OnNewWave.RemoveListener(StartNewWave);
     }
 
     public void StartNewWave()

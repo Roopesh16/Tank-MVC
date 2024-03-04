@@ -13,12 +13,12 @@ public class UIManager
         Init();
     }
 
-    public void Enable()
+    public void OnEnable()
     {
         EventManager.Instance.OnGameOver.AddListener(DisplayGameOver);
     }
 
-    public void Disable()
+    public void OnDisable()
     {
         EventManager.Instance.OnGameOver.RemoveListener(DisplayGameOver);
     }
@@ -27,7 +27,7 @@ public class UIManager
     {
         waveNumberText.gameObject.SetActive(false);
         gameOverObject.SetActive(false);
-        Enable();
+        OnEnable();
     }
 
     public void SetWaveText()

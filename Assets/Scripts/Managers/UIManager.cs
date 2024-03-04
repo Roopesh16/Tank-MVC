@@ -43,13 +43,7 @@ public class UIManager : MonoBehaviour
         waveNumberText.text = "WAVE NO. " + WaveManager.instance.GetWaveNumber();
     }
 
-    public void DisableWaveText()
-    {
-        waveNumberText.gameObject.SetActive(false);
-    }
+    public void DisableWaveText() => waveNumberText.gameObject.SetActive(false);
 
-    public void DisplayGameOver()
-    {
-        gameOverObject.SetActive(true);
-    }
+    public void DisplayGameOver() => gameOverObject.SetActive(true);
 }

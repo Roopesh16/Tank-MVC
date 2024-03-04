@@ -15,12 +15,12 @@ public class TankView : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.Instance.OnGameOver.AddListener(TankDisable);
+        GameManager.Instance.eventManager.OnGameOver.AddListener(TankDisable);
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.OnGameOver.RemoveListener(TankDisable);
+        GameManager.Instance.eventManager.OnGameOver.RemoveListener(TankDisable);
     }
 
     private void Start() => SetupCamera();

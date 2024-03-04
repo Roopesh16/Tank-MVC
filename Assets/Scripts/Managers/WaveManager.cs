@@ -25,15 +25,14 @@ public class WaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public async void SetupNewWave()
+    public void StartNewWave()
     {
         if (waveCount == wavesList.Count)
         {
             UIManager.instance.DisplayGameOver();
             return;
         }
-        UIManager.instance.SetWaveText(wavesList[waveCount].waveNumber);
-        await Task.Delay(GameManager.instance.UITimer);
+
         enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.instance.GetBulletDamage());
         waveCount++;
     }
@@ -46,5 +45,10 @@ public class WaveManager : MonoBehaviour
     public void SetTankController(TankController tankController)
     {
         enemySpawner.SetupPlayerTank(tankController);
+    }
+
+    public int GetWaveNumber()
+    {
+        return wavesList[waveCount].waveNumber;
     }
 }

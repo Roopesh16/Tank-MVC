@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private float maxTime;
+
     public static GameManager instance = null;
     private const int uiTimer = 3000;
+
 
     public Camera newCamera;
 
@@ -38,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         this.bulletDamage = bulletDamage;
         WaveManager.instance.SetTankController(tankController);
-        WaveManager.instance.SetupNewWave();
+        SetupNewWave();
     }
 
     public int GetBulletDamage()
@@ -59,5 +63,18 @@ public class GameManager : MonoBehaviour
     public void SetNewCamera()
     {
         newCamera.gameObject.SetActive(true);
+    }
+
+    public void SetupNewWave()
+    {
+        UIManager.instance.SetWaveText();
+        StartCoroutine(WaitProcess());
+    }
+
+    private IEnumerator WaitProcess()
+    {
+        yield return new WaitForSeconds(maxTime);
+        UIManager.instance.DisableWaveText();
+        WaveManager.instance.StartNewWave();
     }
 }

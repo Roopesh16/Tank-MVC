@@ -32,19 +32,20 @@ public class GameManager : GenericMonoSingleton<GameManager>
 
     private void OnEnable()
     {
+        uIManager.OnEnable();
         EventManager.Instance.OnGameOver.AddListener(SetNewCamera);
     }
 
     private void OnDisable()
     {
+        uIManager.OnDisable();
         EventManager.Instance.OnGameOver.RemoveListener(SetNewCamera);
     }
 
-    void Start()
+    private void Start()
     {
         waveManager = new WaveManager(enemySpawner, wavesList);
         uIManager = new UIManager(waveNumberText, gameOverObject);
-
     }
 
     public void SetupNewGame(TankController tankController, int bulletDamage)

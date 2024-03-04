@@ -13,12 +13,12 @@ public class UIManager : MonoBehaviour
         Init();
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         EventManager.Instance.OnGameOver.AddListener(DisplayGameOver);
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         EventManager.Instance.OnGameOver.RemoveListener(DisplayGameOver);
     }

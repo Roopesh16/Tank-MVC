@@ -17,14 +17,14 @@ public class GameManager : GenericMonoSingleton<GameManager>
     [SerializeField] private TextMeshProUGUI waveNumberText;
     [SerializeField] private GameObject gameOverObject;
 
-    public static GameManager instance = null;
+    public static GameManager Instance = null;
 
     private int bulletDamage;
     private int enemyDamage;
 
-    private WaveManager waveManager;
-    private UIManager uIManager;
-    private EventManager eventManager;
+    public WaveManager waveManager { get; private set; }
+    public UIManager uIManager { get; private set; }
+    public EventManager eventManager { get; private set; }
 
     protected override void Awake()
     {
@@ -46,13 +46,13 @@ public class GameManager : GenericMonoSingleton<GameManager>
     {
         waveManager = new WaveManager(enemySpawner, wavesList);
         uIManager = new UIManager(waveNumberText, gameOverObject);
-        
+
     }
 
     public void SetupNewGame(TankController tankController, int bulletDamage)
     {
         this.bulletDamage = bulletDamage;
-        WaveManager.instance.SetTankController(tankController);
+        waveManager.SetTankController(tankController);
         SetupNewWave();
     }
 
@@ -74,6 +74,6 @@ public class GameManager : GenericMonoSingleton<GameManager>
     {
         yield return new WaitForSeconds(maxTime);
         UIManager.instance.DisableWaveText();
-        WaveManager.instance.StartNewWave();
+        waveManager.StartNewWave();
     }
 }

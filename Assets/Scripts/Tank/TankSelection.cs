@@ -9,7 +9,7 @@ public class TankSelection : MonoBehaviour
     {
         tankSpawner.CreateTank(TankTypes.GREEN);
         bulletSpawner.CreateBullet(TankTypes.GREEN, tankSpawner.GetBulletSpawn());
-        GameManager.instance.SetupNewGame(tankSpawner.GetTankController() ,bulletSpawner.GetDamage());
+        GameManager.Instance.SetupNewGame(tankSpawner.GetTankController(), bulletSpawner.GetDamage());
         gameObject.SetActive(false);
     }
 
@@ -17,7 +17,7 @@ public class TankSelection : MonoBehaviour
     {
         tankSpawner.CreateTank(TankTypes.RED);
         bulletSpawner.CreateBullet(TankTypes.RED, tankSpawner.GetBulletSpawn());
-        GameManager.instance.SetupNewGame(tankSpawner.GetTankController() ,bulletSpawner.GetDamage());
+        GameManager.Instance.SetupNewGame(tankSpawner.GetTankController(), bulletSpawner.GetDamage());
         gameObject.SetActive(false);
     }
 
@@ -25,7 +25,7 @@ public class TankSelection : MonoBehaviour
     {
         tankSpawner.CreateTank(TankTypes.BLUE);
         bulletSpawner.CreateBullet(TankTypes.BLUE, tankSpawner.GetBulletSpawn());
-        GameManager.instance.SetupNewGame(tankSpawner.GetTankController() ,bulletSpawner.GetDamage());
+        GameManager.Instance.SetupNewGame(tankSpawner.GetTankController(), bulletSpawner.GetDamage());
         gameObject.SetActive(false);
     }
 }

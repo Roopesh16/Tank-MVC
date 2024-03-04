@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     public void SetWaveText()
     {
         waveNumberText.gameObject.SetActive(true);
-        waveNumberText.text = "WAVE NO. " + WaveManager.instance.GetWaveNumber();
+        waveNumberText.text = "WAVE NO. " + GameManager.Instance.waveManager.GetWaveNumber();
     }
 
     public void DisableWaveText() => waveNumberText.gameObject.SetActive(false);

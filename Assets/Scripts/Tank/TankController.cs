@@ -34,7 +34,7 @@ public class TankController
 
     public void DecreaseHealth()
     {
-        tankModel.health -= GameManager.instance.GetEnemyDamage();
+        tankModel.health -= GameManager.Instance.GetEnemyDamage();
 
         if (tankModel.health <= 0)
         {

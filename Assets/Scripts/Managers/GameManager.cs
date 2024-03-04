@@ -1,35 +1,35 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManager : GenericMonoSingleton<GameManager>
 {
+    [Header("Game Manager References")]
     [SerializeField] private float maxTime;
+    [SerializeField] private Camera newCamera;
+
+    [Header("Wave Manager References")]
+    [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private List<WaveScriptableObject> wavesList = new();
+
+    [Header("UI Manager References")]
+    [SerializeField] private TextMeshProUGUI waveNumberText;
+    [SerializeField] private GameObject gameOverObject;
 
     public static GameManager instance = null;
-    private const int uiTimer = 3000;
-
-
-    public Camera newCamera;
-
-    public int UITimer
-    {
-        get { return uiTimer; }
-    }
 
     private int bulletDamage;
     private int enemyDamage;
 
-    private void Awake()
+    private WaveManager waveManager;
+    private UIManager uIManager;
+    private EventManager eventManager;
+
+    protected override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(this);
+        base.Awake();
+        eventManager = new EventManager();
     }
 
     private void OnEnable()
@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        waveManager = new WaveManager();
-        uIManager = new UIManager();
-        eventService = new EventManager();
+        waveManager = new WaveManager(enemySpawner, wavesList);
+        uIManager = new UIManager(waveNumberText, gameOverObject);
+        
     }
 
     public void SetupNewGame(TankController tankController, int bulletDamage)

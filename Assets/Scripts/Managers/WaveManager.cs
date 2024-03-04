@@ -5,10 +5,18 @@ using System.Threading.Tasks;
 
 public class WaveManager : MonoBehaviour
 {
-    
+    private EnemySpawner enemySpawner;
+    private List<WaveScriptableObject> wavesList = new();
+
     public static WaveManager instance = null;
 
     private int waveCount = 0;
+
+    public WaveManager(EnemySpawner enemySpawner,List<WaveScriptableObject> wavesList)
+    {
+        this.enemySpawner = enemySpawner;
+        this.wavesList = wavesList;
+    }
 
     private void Awake()
     {

@@ -64,14 +64,14 @@ public class GameManager : GenericMonoSingleton<GameManager>
 
     public void SetupNewWave()
     {
-        UIManager.instance.SetWaveText();
+        uIManager.SetWaveText();
         StartCoroutine(WaitProcess());
     }
 
     private IEnumerator WaitProcess()
     {
         yield return new WaitForSeconds(maxTime);
-        UIManager.instance.DisableWaveText();
+        uIManager.DisableWaveText();
         waveManager.StartNewWave();
     }
 }

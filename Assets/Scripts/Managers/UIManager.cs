@@ -5,26 +5,11 @@ public class UIManager : MonoBehaviour
 {
     private TextMeshProUGUI waveNumberText;
     private GameObject gameOverObject;
-    public static UIManager instance = null;
 
     public UIManager(TextMeshProUGUI waveNumberText, GameObject gameOverObject)
     {
         this.waveNumberText = waveNumberText;
         this.gameOverObject = gameOverObject;
-    }
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()

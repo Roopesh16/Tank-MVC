@@ -38,7 +38,7 @@ public class TankController
 
         if (tankModel.health <= 0)
         {
-            EventService.Instance.OnGameOver.InvokeEvent();
+            EventManager.Instance.OnGameOver.InvokeEvent();
         }
     }
 }

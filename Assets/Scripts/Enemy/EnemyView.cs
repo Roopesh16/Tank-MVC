@@ -19,12 +19,12 @@ public class EnemyView : MonoBehaviour
 
     private void OnEnable()
     {
-        EventService.Instance.OnGameOver.AddListener(StopTank);
+        EventManager.Instance.OnGameOver.AddListener(StopTank);
     }
 
     private void OnDisable()
     {
-        EventService.Instance.OnGameOver.RemoveListener(StopTank);
+        EventManager.Instance.OnGameOver.RemoveListener(StopTank);
     }
 
     private void OnCollisionEnter(Collision other)

@@ -3,8 +3,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI waveNumberText;
-    [SerializeField] private GameObject gameOverObject;
+
     public static UIManager instance = null;
 
     private void Awake()
@@ -23,12 +22,12 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventService.Instance.OnGameOver.AddListener(DisplayGameOver);
+        EventManager.Instance.OnGameOver.AddListener(DisplayGameOver);
     }
 
     private void OnDisable()
     {
-        EventService.Instance.OnGameOver.RemoveListener(DisplayGameOver);
+        EventManager.Instance.OnGameOver.RemoveListener(DisplayGameOver);
     }
 
     private void Start()

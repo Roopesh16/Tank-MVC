@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] private EnemySpawner enemySpawner;
-    [SerializeField] private List<WaveScriptableObject> wavesList = new();
+    
     public static WaveManager instance = null;
 
     private int waveCount = 0;

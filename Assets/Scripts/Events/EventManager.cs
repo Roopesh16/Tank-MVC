@@ -1,14 +1,14 @@
 using Unity.VisualScripting;
 
-public class EventService
+public class EventManager
 {
-    private static EventService instance = null;
+    private static EventManager instance = null;
 
-    public static EventService Instance
+    public static EventManager Instance
     {
         get
         {
-            instance ??= new EventService();
+            instance ??= new EventManager();
 
             return instance;
         }
@@ -16,7 +16,7 @@ public class EventService
 
     public EventController OnGameOver { get; private set; }
 
-    public EventService()
+    public EventManager()
     {
         OnGameOver = new EventController();
     }

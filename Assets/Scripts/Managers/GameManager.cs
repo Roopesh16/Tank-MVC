@@ -34,15 +34,20 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventService.Instance.OnGameOver.AddListener(SetNewCamera);
+        EventManager.Instance.OnGameOver.AddListener(SetNewCamera);
     }
 
     private void OnDisable()
     {
-        EventService.Instance.OnGameOver.RemoveListener(SetNewCamera);
+        EventManager.Instance.OnGameOver.RemoveListener(SetNewCamera);
     }
 
-    void Start() => newCamera.gameObject.SetActive(false);
+    void Start()
+    {
+        waveManager = new WaveManager();
+        uIManager = new UIManager();
+        eventService = new EventManager();
+    }
 
     public void SetupNewGame(TankController tankController, int bulletDamage)
     {

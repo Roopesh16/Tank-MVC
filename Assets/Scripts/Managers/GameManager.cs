@@ -17,8 +17,6 @@ public class GameManager : GenericMonoSingleton<GameManager>
     [SerializeField] private TextMeshProUGUI waveNumberText;
     [SerializeField] private GameObject gameOverObject;
 
-    public static GameManager Instance = null;
-
     private int bulletDamage;
     private int enemyDamage;
 

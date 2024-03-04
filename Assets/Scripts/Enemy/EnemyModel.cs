@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyModel
 {
-   public EnemyType enemyType;
+    public EnemyType enemyType;
     public float movementSpeed;
     public float rotationSpeed;
     public int health;
@@ -15,8 +15,8 @@ public class EnemyModel
 
     private EnemyController enemyController;
 
-    public EnemyModel(EnemyType enemyType,float movementSpeed,float rotationSpeed,int health,float firingRate,
-                      float stoppingDistance,float bulletSpeed,EnemyBulletView enemyBullet,int bulletDamage)
+    public EnemyModel(EnemyType enemyType, float movementSpeed, float rotationSpeed, int health, float firingRate,
+                      float stoppingDistance, float bulletSpeed, EnemyBulletView enemyBullet, int bulletDamage)
     {
         this.enemyType = enemyType;
         this.movementSpeed = movementSpeed;
@@ -29,8 +29,5 @@ public class EnemyModel
         this.bulletDamage = bulletDamage;
     }
 
-    public void SetEnemyController(EnemyController enemyController)
-    {
-        this.enemyController = enemyController;
-    }
+    public void SetEnemyController(EnemyController enemyController) => this.enemyController = enemyController;
 }

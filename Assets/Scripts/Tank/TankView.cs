@@ -15,18 +15,15 @@ public class TankView : MonoBehaviour
 
     private void OnEnable()
     {
-        EventService.Instance.OnGameOver.AddListener(OnTankDestroy);
+        EventService.Instance.OnGameOver.AddListener(TankDisable);
     }
 
     private void OnDisable()
     {
-        EventService.Instance.OnGameOver.RemoveListener(OnTankDestroy);
+        EventService.Instance.OnGameOver.RemoveListener(TankDisable);
     }
 
-    private void Start()
-    {
-        SetupCamera();
-    }
+    private void Start() => SetupCamera();
 
     private void Update()
     {
@@ -47,15 +44,9 @@ public class TankView : MonoBehaviour
         }
     }
 
-    public void SetTankController(TankController tankController)
-    {
-        this.tankController = tankController;
-    }
+    public void SetTankController(TankController tankController) => this.tankController = tankController;
 
-    public Rigidbody GetRigidbody()
-    {
-        return tankRb;
-    }
+    public Rigidbody GetRigidbody() => tankRb;
 
     private void Movement()
     {
@@ -79,13 +70,7 @@ public class TankView : MonoBehaviour
         }
     }
 
-    public Transform GetSpawnPoint()
-    {
-        return bulletSpawn;
-    }
+    public Transform GetSpawnPoint() => bulletSpawn;
 
-    private void OnTankDestroy()
-    {
-        gameObject.SetActive(false);
-    }
+    private void TankDisable() => gameObject.SetActive(false);
 }

@@ -13,8 +13,8 @@ public class BulletModel
 
     private BulletController bulletController;
 
-    public BulletModel(float bulletSpeed,BulletType bulletType,Material color,
-                       float blastRadius,float firingRate,int damage)
+    public BulletModel(float bulletSpeed, BulletType bulletType, Material color,
+                       float blastRadius, float firingRate, int damage)
     {
         this.bulletSpeed = bulletSpeed;
         this.bulletType = bulletType;
@@ -24,8 +24,5 @@ public class BulletModel
         this.damage = damage;
     }
 
-    public void SetBulletController(BulletController bulletController)
-    {
-        this.bulletController = bulletController;
-    }
+    public void SetBulletController(BulletController bulletController) => this.bulletController = bulletController;
 }

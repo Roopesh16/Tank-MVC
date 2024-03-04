@@ -48,9 +48,6 @@ public class EnemySpawner : MonoBehaviour
         currentEnemy++;
     }
 
-    public void SetupPlayerTank(TankController tankController)
-    {
-        playerTank = tankController.GetTankView();
-    }
+    public void SetupPlayerTank(TankController tankController) => playerTank = tankController.GetTankView();
 
 }

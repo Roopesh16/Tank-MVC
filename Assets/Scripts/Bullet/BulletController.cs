@@ -25,11 +25,8 @@ public class BulletController
     {
         BulletView bullet = GameObject.Instantiate<BulletView>(bulletView, spawnPoint);
         bullet.transform.SetParent(parentPosition);
-        bullet.SetBulletData(bulletModel.color, bulletModel.bulletSpeed,bulletModel.blastRadius);
+        bullet.SetBulletData(bulletModel.color, bulletModel.bulletSpeed, bulletModel.blastRadius);
     }
 
-    public int GetDamage()
-    {
-        return bulletModel.damage;
-    }
+    public int GetDamage() => bulletModel.damage;
 }

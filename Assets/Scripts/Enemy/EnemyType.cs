@@ -1,6 +1,6 @@
 public enum EnemyType
 {
-    Heavey_Assault,
+    Heavy_Assault,
     Scout,
     Artillery
 }

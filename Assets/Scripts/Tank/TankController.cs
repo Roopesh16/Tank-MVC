@@ -17,10 +17,7 @@ public class TankController
         this.tankView.SetColor(tankModel.color);
     }
 
-    public void Move(float movement, float movementSpeed)
-    {
-        tankRb.velocity = tankView.transform.forward * movement * movementSpeed;
-    }
+    public void Move(float movement, float movementSpeed) => tankRb.velocity = tankView.transform.forward * movement * movementSpeed;
 
     public void Rotate(float rotation, float rotationSpeed)
     {
@@ -29,20 +26,11 @@ public class TankController
         tankRb.MoveRotation(tankRb.rotation * deltaRotation);
     }
 
-    public TankModel GetTankModel()
-    {
-        return tankModel;
-    }
+    public TankModel GetTankModel() => tankModel;
 
-    public Transform GetBulletSpawn()
-    {
-        return tankView.GetSpawnPoint();
-    }
+    public Transform GetBulletSpawn() => tankView.GetSpawnPoint();
 
-    public TankView GetTankView()
-    {
-        return tankView;
-    }
+    public TankView GetTankView() => tankView;
 
     public void DecreaseHealth()
     {

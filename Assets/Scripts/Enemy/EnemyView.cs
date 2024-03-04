@@ -15,10 +15,7 @@ public class EnemyView : MonoBehaviour
     private float maxTime = 2f;
     private bool canStartTimer = false;
 
-    private void Awake()
-    {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-    }
+    private void Awake() => navMeshAgent = GetComponent<NavMeshAgent>();
 
     private void OnCollisionEnter(Collision other)
     {
@@ -82,10 +79,7 @@ public class EnemyView : MonoBehaviour
         navMeshAgent.stoppingDistance = stoppingDistance;
     }
 
-    public void SetEnemyController(EnemyController enemyController)
-    {
-        this.enemyController = enemyController;
-    }
+    public void SetEnemyController(EnemyController enemyController) => this.enemyController = enemyController;
 
     public void StartTank()
     {

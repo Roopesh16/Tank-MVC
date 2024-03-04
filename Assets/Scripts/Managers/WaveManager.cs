@@ -37,18 +37,12 @@ public class WaveManager : MonoBehaviour
         waveCount++;
     }
 
-    public void SpawnNextTank()
-    {
-        enemySpawner.SpawnNextTank();
-    }
+    public void SpawnNextTank() => enemySpawner.SpawnNextTank();
 
     public void SetTankController(TankController tankController)
     {
         enemySpawner.SetupPlayerTank(tankController);
     }
 
-    public int GetWaveNumber()
-    {
-        return wavesList[waveCount].waveNumber;
-    }
+    public int GetWaveNumber() => wavesList[waveCount].waveNumber;
 }

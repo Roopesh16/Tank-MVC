@@ -21,6 +21,16 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnEnable()
+    {
+        EventService.Instance.OnGameOver.AddListener(DisplayGameOver);
+    }
+
+    private void OnDisable()
+    {
+        EventService.Instance.OnGameOver.RemoveListener(DisplayGameOver);
+    }
+
     private void Start()
     {
         waveNumberText.gameObject.SetActive(false);

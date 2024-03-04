@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class UIManager : MonoBehaviour
+public class UIManager
 {
     private TextMeshProUGUI waveNumberText;
     private GameObject gameOverObject;
@@ -13,12 +13,12 @@ public class UIManager : MonoBehaviour
         Init();
     }
 
-    public void OnEnable()
+    public void Enable()
     {
         EventManager.Instance.OnGameOver.AddListener(DisplayGameOver);
     }
 
-    public void OnDisable()
+    public void Disable()
     {
         EventManager.Instance.OnGameOver.RemoveListener(DisplayGameOver);
     }
@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     {
         waveNumberText.gameObject.SetActive(false);
         gameOverObject.SetActive(false);
+        Enable();
     }
 
     public void SetWaveText()

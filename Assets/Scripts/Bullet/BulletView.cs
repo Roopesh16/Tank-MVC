@@ -11,10 +11,7 @@ public class BulletView : MonoBehaviour
     private float blastRadius;
     private float bulletSpeed;
 
-    private void Awake()
-    {
-        meshRenderer = GetComponent<MeshRenderer>();
-    }
+    private void Awake() => meshRenderer = GetComponent<MeshRenderer>();
 
     void Update()
     {
@@ -46,10 +43,7 @@ public class BulletView : MonoBehaviour
         canMove = true;
     }
 
-    public void SetBulletController(BulletController bulletController)
-    {
-        this.bulletController = bulletController;
-    }
+    public void SetBulletController(BulletController bulletController) => this.bulletController = bulletController;
 
     private void BlastImpact()
     {

@@ -1,50 +1,47 @@
 using System.Collections.Generic;
-using System.Collections;
-using UnityEngine;
-using System.Threading.Tasks;
 
-public class WaveManager : MonoBehaviour
+public class WaveManager
 {
-    [SerializeField] private EnemySpawner enemySpawner;
-    [SerializeField] private List<WaveScriptableObject> wavesList = new();
-    public static WaveManager instance = null;
+    private EnemySpawner enemySpawner;
+    private List<WaveScriptableObject> wavesList = new();
 
     private int waveCount = 0;
 
-    private void Awake()
+    public WaveManager(EnemySpawner enemySpawner, List<WaveScriptableObject> wavesList)
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
+        this.enemySpawner = enemySpawner;
+        this.wavesList = wavesList;
+        OnEnable();
     }
 
-    public async void SetupNewWave()
+    public void OnEnable()
+    {
+        GameManager.Instance.eventManager.OnNewWave.AddListener(StartNewWave);
+    }
+
+    public void OnDisable()
+    {
+        GameManager.Instance.eventManager.OnNewWave.RemoveListener(StartNewWave);
+    }
+
+    public void StartNewWave()
     {
         if (waveCount == wavesList.Count)
         {
-            UIManager.instance.DisplayGameOver();
+            GameManager.Instance.eventManager.OnGameOver.InvokeEvent();
             return;
         }
-        UIManager.instance.SetWaveText(wavesList[waveCount].waveNumber);
-        await Task.Delay(GameManager.instance.UITimer);
-        enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.instance.GetBulletDamage());
+
+        enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.Instance.GetBulletDamage());
         waveCount++;
     }
 
-    public void SpawnNextTank()
-    {
-        enemySpawner.SpawnNextTank();
-    }
+    public void SpawnNextTank() => enemySpawner.SpawnNextTank();
 
     public void SetTankController(TankController tankController)
     {
         enemySpawner.SetupPlayerTank(tankController);
     }
+
+    public int GetWaveNumber() => wavesList[waveCount].waveNumber;
 }

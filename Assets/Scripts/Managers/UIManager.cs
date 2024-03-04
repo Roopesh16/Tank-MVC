@@ -1,43 +1,45 @@
 using UnityEngine;
 using TMPro;
-using System.Threading.Tasks;
 
-public class UIManager : MonoBehaviour
+public class UIManager
 {
-    [SerializeField] private TextMeshProUGUI waveNumberText;
-    [SerializeField] private GameObject gameOverObject;
-    public static UIManager instance = null;
+    private TextMeshProUGUI waveNumberText;
+    private GameObject gameOverObject;
 
-    private void Awake()
+    public UIManager(TextMeshProUGUI waveNumberText, GameObject gameOverObject)
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
+        this.waveNumberText = waveNumberText;
+        this.gameOverObject = gameOverObject;
+        Init();
     }
 
-    private void Start()
+    public void OnEnable()
+    {
+        GameManager.Instance.eventManager.OnGameOver.AddListener(DisplayGameOver);
+        GameManager.Instance.eventManager.OnNewWave.AddListener(DisableWaveText);
+
+    }
+
+    public void OnDisable()
+    {
+        GameManager.Instance.eventManager.OnGameOver.RemoveListener(DisplayGameOver);
+        GameManager.Instance.eventManager.OnNewWave.RemoveListener(DisableWaveText);
+    }
+
+    private void Init()
     {
         waveNumberText.gameObject.SetActive(false);
         gameOverObject.SetActive(false);
+        OnEnable();
     }
 
-    public async void SetWaveText(int waveNumber)
+    public void SetWaveText()
     {
         waveNumberText.gameObject.SetActive(true);
-        waveNumberText.text = "WAVE NO. " + waveNumber;
-        await Task.Delay(GameManager.instance.UITimer);
-        waveNumberText.gameObject.SetActive(false);
+        waveNumberText.text = "WAVE NO. " + GameManager.Instance.waveManager.GetWaveNumber();
     }
 
-    public void DisplayGameOver()
-    {
-        gameOverObject.SetActive(true);
-    }
+    public void DisableWaveText() => waveNumberText.gameObject.SetActive(false);
+
+    public void DisplayGameOver() => gameOverObject.SetActive(true);
 }

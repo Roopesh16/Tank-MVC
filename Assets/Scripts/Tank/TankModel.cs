@@ -18,8 +18,5 @@ public class TankModel
         this.health = health;
     }
 
-    public void SetTankController(TankController tankController)
-    {
-        this.tankController = tankController;
-    }
+    public void SetTankController(TankController tankController) => this.tankController = tankController;
 }

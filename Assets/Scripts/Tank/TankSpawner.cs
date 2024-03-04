@@ -17,13 +17,7 @@ public class TankSpawner : MonoBehaviour
         bulletSpawn = tankController.GetBulletSpawn();
     }
 
-    public Transform GetBulletSpawn()
-    {
-        return bulletSpawn;
-    }
+    public Transform GetBulletSpawn() => bulletSpawn;
 
-    public TankController GetTankController()
-    {
-        return tankController;
-    }
+    public TankController GetTankController() => tankController;
 }

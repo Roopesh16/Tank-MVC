@@ -15,9 +15,16 @@ public class EnemyView : MonoBehaviour
     private float maxTime = 2f;
     private bool canStartTimer = false;
 
-    private void Awake()
+    private void Awake() => navMeshAgent = GetComponent<NavMeshAgent>();
+
+    private void OnEnable()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        GameManager.Instance.eventManager.OnGameOver.AddListener(StopTank);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.eventManager.OnGameOver.RemoveListener(StopTank);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -82,14 +89,17 @@ public class EnemyView : MonoBehaviour
         navMeshAgent.stoppingDistance = stoppingDistance;
     }
 
-    public void SetEnemyController(EnemyController enemyController)
-    {
-        this.enemyController = enemyController;
-    }
+    public void SetEnemyController(EnemyController enemyController) => this.enemyController = enemyController;
 
     public void StartTank()
     {
         navMeshAgent.SetDestination(playerTank.transform.position);
         canTrack = true;
+    }
+
+    private void StopTank()
+    {
+        canTrack = false;
+        navMeshAgent.isStopped = true;
     }
 }

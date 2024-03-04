@@ -13,10 +13,17 @@ public class TankView : MonoBehaviour
     private float movement;
     private float rotation;
 
-    private void Start()
+    private void OnEnable()
     {
-        SetupCamera();
+        GameManager.Instance.eventManager.OnGameOver.AddListener(TankDisable);
     }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.eventManager.OnGameOver.RemoveListener(TankDisable);
+    }
+
+    private void Start() => SetupCamera();
 
     private void Update()
     {
@@ -37,15 +44,9 @@ public class TankView : MonoBehaviour
         }
     }
 
-    public void SetTankController(TankController tankController)
-    {
-        this.tankController = tankController;
-    }
+    public void SetTankController(TankController tankController) => this.tankController = tankController;
 
-    public Rigidbody GetRigidbody()
-    {
-        return tankRb;
-    }
+    public Rigidbody GetRigidbody() => tankRb;
 
     private void Movement()
     {
@@ -69,8 +70,7 @@ public class TankView : MonoBehaviour
         }
     }
 
-    public Transform GetSpawnPoint()
-    {
-        return bulletSpawn;
-    }
+    public Transform GetSpawnPoint() => bulletSpawn;
+
+    private void TankDisable() => gameObject.SetActive(false);
 }

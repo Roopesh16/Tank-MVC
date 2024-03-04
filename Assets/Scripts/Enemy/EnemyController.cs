@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController
@@ -16,7 +14,7 @@ public class EnemyController
         this.enemyView.SetEnemyView(tankView, enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance, enemyModel.firingRate);
         this.enemyView.gameObject.SetActive(false);
         this.damage = damage;
-        GameManager.instance.SetEnemyDamage(enemyModel.bulletDamage);
+        GameManager.Instance.SetEnemyDamage(enemyModel.bulletDamage);
     }
 
     public void DecreaseHealth()
@@ -26,7 +24,7 @@ public class EnemyController
         if (enemyModel.health <= 0)
         {
             enemyView.gameObject.SetActive(false);
-            WaveManager.instance.SpawnNextTank();
+            GameManager.Instance.waveManager.SpawnNextTank();
         }
     }
 

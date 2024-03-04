@@ -1,63 +1,77 @@
-using UnityEditor.Rendering;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManager : GenericMonoSingleton<GameManager>
 {
-    public static GameManager instance = null;
-    private const int uiTimer = 3000;
+    [Header("Game Manager References")]
+    [SerializeField] private float maxTime;
+    [SerializeField] private Camera newCamera;
 
-    public Camera newCamera;
+    [Header("Wave Manager References")]
+    [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private List<WaveScriptableObject> wavesList = new();
 
-    public int UITimer
-    {
-        get { return uiTimer; }
-    }
+    [Header("UI Manager References")]
+    [SerializeField] private TextMeshProUGUI waveNumberText;
+    [SerializeField] private GameObject gameOverObject;
 
     private int bulletDamage;
     private int enemyDamage;
 
-    private void Awake()
+    public WaveManager waveManager { get; private set; }
+    public UIManager uIManager { get; private set; }
+    public EventManager eventManager { get; private set; }
+
+    protected override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(this);
+        base.Awake();
+        eventManager = new EventManager();
     }
 
-    void Start()
+    private void OnEnable()
     {
-        newCamera.gameObject.SetActive(false);
+        eventManager.OnGameOver.AddListener(SetNewCamera);
+    }
+
+    private void OnDisable()
+    {
+        uIManager.OnDisable();
+        waveManager.OnDisable();
+        eventManager.OnGameOver.RemoveListener(SetNewCamera);
+    }
+
+    private void Start()
+    {
+        waveManager = new WaveManager(enemySpawner, wavesList);
+        uIManager = new UIManager(waveNumberText, gameOverObject);
     }
 
     public void SetupNewGame(TankController tankController, int bulletDamage)
     {
         this.bulletDamage = bulletDamage;
-        WaveManager.instance.SetTankController(tankController);
-        WaveManager.instance.SetupNewWave();
+        waveManager.SetTankController(tankController);
+        SetupNewWave();
     }
 
-    public int GetBulletDamage()
+    public int GetBulletDamage() => bulletDamage;
+
+    public int GetEnemyDamage() => enemyDamage;
+
+    public void SetEnemyDamage(int enemyDamage) => this.enemyDamage = enemyDamage;
+
+    public void SetNewCamera() => newCamera.gameObject.SetActive(true);
+
+    public void SetupNewWave()
     {
-        return bulletDamage;
+        uIManager.SetWaveText();
+        StartCoroutine(WaitProcess());
     }
 
-    public int GetEnemyDamage()
+    private IEnumerator WaitProcess()
     {
-        return enemyDamage;
-    }
-
-    public void SetEnemyDamage(int enemyDamage)
-    {
-        this.enemyDamage = enemyDamage;
-    }
-
-    public void SetNewCamera()
-    {
-        newCamera.gameObject.SetActive(true);
+        yield return new WaitForSeconds(maxTime);
+        eventManager.OnNewWave.InvokeEvent();
     }
 }

@@ -15,12 +15,15 @@ public class UIManager
 
     public void OnEnable()
     {
-        EventManager.Instance.OnGameOver.AddListener(DisplayGameOver);
+        GameManager.Instance.eventManager.OnGameOver.AddListener(DisplayGameOver);
+        GameManager.Instance.eventManager.OnNewWave.AddListener(DisableWaveText);
+
     }
 
     public void OnDisable()
     {
-        EventManager.Instance.OnGameOver.RemoveListener(DisplayGameOver);
+        GameManager.Instance.eventManager.OnGameOver.RemoveListener(DisplayGameOver);
+        GameManager.Instance.eventManager.OnNewWave.RemoveListener(DisableWaveText);
     }
 
     private void Init()

@@ -17,6 +17,16 @@ public class EnemyView : MonoBehaviour
 
     private void Awake() => navMeshAgent = GetComponent<NavMeshAgent>();
 
+    private void OnEnable()
+    {
+        EventService.Instance.OnGameOver.AddListener(StopTank);
+    }
+
+    private void OnDisable()
+    {
+        EventService.Instance.OnGameOver.RemoveListener(StopTank);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Bullet"))
@@ -85,5 +95,11 @@ public class EnemyView : MonoBehaviour
     {
         navMeshAgent.SetDestination(playerTank.transform.position);
         canTrack = true;
+    }
+
+    private void StopTank()
+    {
+        canTrack = false;
+        navMeshAgent.isStopped = true;
     }
 }

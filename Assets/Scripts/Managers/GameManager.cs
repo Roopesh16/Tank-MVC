@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -33,10 +32,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    void Start()
+    private void OnEnable()
     {
-        newCamera.gameObject.SetActive(false);
+        EventService.Instance.OnGameOver.AddListener(SetNewCamera);
     }
+
+    private void OnDisable()
+    {
+        EventService.Instance.OnGameOver.RemoveListener(SetNewCamera);
+    }
+
+    void Start() => newCamera.gameObject.SetActive(false);
 
     public void SetupNewGame(TankController tankController, int bulletDamage)
     {
@@ -45,25 +51,13 @@ public class GameManager : MonoBehaviour
         SetupNewWave();
     }
 
-    public int GetBulletDamage()
-    {
-        return bulletDamage;
-    }
+    public int GetBulletDamage() => bulletDamage;
 
-    public int GetEnemyDamage()
-    {
-        return enemyDamage;
-    }
+    public int GetEnemyDamage() => enemyDamage;
 
-    public void SetEnemyDamage(int enemyDamage)
-    {
-        this.enemyDamage = enemyDamage;
-    }
+    public void SetEnemyDamage(int enemyDamage) => this.enemyDamage = enemyDamage;
 
-    public void SetNewCamera()
-    {
-        newCamera.gameObject.SetActive(true);
-    }
+    public void SetNewCamera() => newCamera.gameObject.SetActive(true);
 
     public void SetupNewWave()
     {

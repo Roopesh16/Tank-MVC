@@ -1,22 +1,18 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class UIManager
 {
     private TextMeshProUGUI waveNumberText;
     private GameObject gameOverObject;
     private GameObject mainMenu;
-    private Button playButton;
     private GameObject lobbyUI;
 
-    public UIManager(TextMeshProUGUI waveNumberText, GameObject gameOverObject,GameObject mainMenu, 
-                    Button playButton, GameObject lobbyUI)
+    public UIManager(TextMeshProUGUI waveNumberText, GameObject gameOverObject,GameObject mainMenu, GameObject lobbyUI)
     {
         this.waveNumberText = waveNumberText;
         this.gameOverObject = gameOverObject;
         this.mainMenu = mainMenu;
-        this.playButton = playButton;
         this.lobbyUI = lobbyUI;
         Init();
     }
@@ -36,7 +32,8 @@ public class UIManager
 
     private void Init()
     {
-        playButton.onClick.AddListener(DisplayLobby);
+        mainMenu.SetActive(true);
+        lobbyUI.SetActive(false);
         waveNumberText.gameObject.SetActive(false);
         gameOverObject.SetActive(false);
         OnEnable();
@@ -52,7 +49,7 @@ public class UIManager
 
     public void DisplayGameOver() => gameOverObject.SetActive(true);
 
-    private void DisplayLobby()
+    public void DisplayLobby()
     {
         mainMenu.SetActive(false);
         lobbyUI.SetActive(true);

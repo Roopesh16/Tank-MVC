@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     {
         this.waveNumberText = waveNumberText;
         this.gameOverObject = gameOverObject;
+        Init();
     }
 
     private void OnEnable()
@@ -22,7 +23,7 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.OnGameOver.RemoveListener(DisplayGameOver);
     }
 
-    private void Start()
+    private void Init()
     {
         waveNumberText.gameObject.SetActive(false);
         gameOverObject.SetActive(false);

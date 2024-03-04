@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42199e958600d9c4fbf64de09c6e5146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTime: 3
   newCamera: {fileID: 497287599}
 --- !u!1 &507202767
 GameObject:

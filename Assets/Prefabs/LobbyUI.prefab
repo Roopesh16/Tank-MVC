@@ -128,7 +128,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
@@ -282,7 +282,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankSpawner: {fileID: 0}
   bulletSpawner: {fileID: 0}
-  enemySpawner: {fileID: 0}
 --- !u!1 &3870283614366464071
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3870283614366464070}
   - component: {fileID: 3870283614366464072}
-  - component: {fileID: 3870283614366464073}
+  - component: {fileID: 1218514205}
   m_Layer: 5
   m_Name: BlueTankText
   m_TagString: Untagged
@@ -329,7 +328,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870283614366464071}
   m_CullTransparentMesh: 0
---- !u!114 &3870283614366464073
+--- !u!114 &1218514205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,19 +348,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Blue Tank
-
-'
+  m_text: Blue Tank
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3182a4612ca913040abfa7e4b2920835, type: 2}
+  m_sharedMaterial: {fileID: -7570102995491014766, guid: 3182a4612ca913040abfa7e4b2920835,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294032650
+  m_fontColor: {r: 0.0391598, g: 0.74230164, b: 0.9433962, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -384,8 +382,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
-  m_HorizontalAlignment: 2
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -563,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3870283614931308291}
   - component: {fileID: 3870283614931308293}
-  - component: {fileID: 3870283614931308290}
+  - component: {fileID: 1218514204}
   m_Layer: 5
   m_Name: GreenTankText
   m_TagString: Untagged
@@ -599,7 +597,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870283614931308288}
   m_CullTransparentMesh: 0
---- !u!114 &3870283614931308290
+--- !u!114 &1218514204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,19 +617,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Green Tank
-
-'
+  m_text: Green Tank
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3182a4612ca913040abfa7e4b2920835, type: 2}
+  m_sharedMaterial: {fileID: -7570102995491014766, guid: 3182a4612ca913040abfa7e4b2920835,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281466689
+  m_fontColor: {r: 0.25631505, g: 1, b: 0.19245279, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -654,8 +651,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
-  m_HorizontalAlignment: 2
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -684,7 +681,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -19.560951, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -915,7 +912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3870283615415395855}
   - component: {fileID: 3870283615415395857}
-  - component: {fileID: 3870283615415395854}
+  - component: {fileID: 1218514203}
   m_Layer: 5
   m_Name: RedTankText
   m_TagString: Untagged
@@ -951,7 +948,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870283615415395852}
   m_CullTransparentMesh: 0
---- !u!114 &3870283615415395854
+--- !u!114 &1218514203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -971,19 +968,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Red Tank
-
-'
+  m_text: Red Tank
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3182a4612ca913040abfa7e4b2920835, type: 2}
+  m_sharedMaterial: {fileID: -7570102995491014766, guid: 3182a4612ca913040abfa7e4b2920835,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279506175
+  m_fontColor: {r: 1, g: 0.07924521, b: 0.07924521, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1006,8 +1002,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
-  m_HorizontalAlignment: 2
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

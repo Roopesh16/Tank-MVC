@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
@@ -16,6 +17,8 @@ public class GameManager : GenericMonoSingleton<GameManager>
     [Header("UI Manager References")]
     [SerializeField] private TextMeshProUGUI waveNumberText;
     [SerializeField] private GameObject gameOverObject;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject lobbyUI;
 
     private int bulletDamage;
     private int enemyDamage;
@@ -45,7 +48,7 @@ public class GameManager : GenericMonoSingleton<GameManager>
     private void Start()
     {
         waveManager = new WaveManager(enemySpawner, wavesList);
-        uIManager = new UIManager(waveNumberText, gameOverObject);
+        uIManager = new UIManager(waveNumberText, gameOverObject, mainMenu, lobbyUI);
     }
 
     public void SetupNewGame(TankController tankController, int bulletDamage)
@@ -67,6 +70,11 @@ public class GameManager : GenericMonoSingleton<GameManager>
     {
         uIManager.SetWaveText();
         StartCoroutine(WaitProcess());
+    }
+
+    public void PlayButton()
+    {
+        uIManager.DisplayLobby();
     }
 
     private IEnumerator WaitProcess()

@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager
 {
@@ -35,6 +36,7 @@ public class UIManager
 
     private void Init()
     {
+        playButton.onClick.AddListener(DisplayLobby);
         waveNumberText.gameObject.SetActive(false);
         gameOverObject.SetActive(false);
         OnEnable();
@@ -49,4 +51,10 @@ public class UIManager
     public void DisableWaveText() => waveNumberText.gameObject.SetActive(false);
 
     public void DisplayGameOver() => gameOverObject.SetActive(true);
+
+    private void DisplayLobby()
+    {
+        mainMenu.SetActive(false);
+        lobbyUI.SetActive(true);
+    }
 }

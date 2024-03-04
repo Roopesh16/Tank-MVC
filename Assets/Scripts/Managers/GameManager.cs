@@ -32,13 +32,14 @@ public class GameManager : GenericMonoSingleton<GameManager>
 
     private void OnEnable()
     {
-        EventManager.Instance.OnGameOver.AddListener(SetNewCamera);
+        eventManager.OnGameOver.AddListener(SetNewCamera);
     }
 
     private void OnDisable()
     {
         uIManager.OnDisable();
-        EventManager.Instance.OnGameOver.RemoveListener(SetNewCamera);
+        waveManager.OnDisable();
+        eventManager.OnGameOver.RemoveListener(SetNewCamera);
     }
 
     private void Start()
@@ -71,7 +72,6 @@ public class GameManager : GenericMonoSingleton<GameManager>
     private IEnumerator WaitProcess()
     {
         yield return new WaitForSeconds(maxTime);
-        uIManager.DisableWaveText();
-        waveManager.StartNewWave();
+        eventManager.OnNewWave.InvokeEvent();
     }
 }

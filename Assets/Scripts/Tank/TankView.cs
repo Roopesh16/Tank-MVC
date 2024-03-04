@@ -13,6 +13,16 @@ public class TankView : MonoBehaviour
     private float movement;
     private float rotation;
 
+    private void OnEnable()
+    {
+        EventService.Instance.OnGameOver.AddListener(OnTankDestroy);
+    }
+
+    private void OnDisable()
+    {
+        EventService.Instance.OnGameOver.RemoveListener(OnTankDestroy);
+    }
+
     private void Start()
     {
         SetupCamera();
@@ -72,5 +82,10 @@ public class TankView : MonoBehaviour
     public Transform GetSpawnPoint()
     {
         return bulletSpawn;
+    }
+
+    private void OnTankDestroy()
+    {
+        gameObject.SetActive(false);
     }
 }

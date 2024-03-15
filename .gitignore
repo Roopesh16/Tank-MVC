@@ -73,3 +73,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.meta
 Build.zip
+.idea/.idea.Tank-MVC/.idea
+Packages

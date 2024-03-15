@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
     [SerializeField] private EnemyScriptableObject[] enemyList;
 
-    private List<EnemyController> enemyControllers = new();
+    private List<IEnemyController> enemyControllers = new();
 
     private int currentEnemy = 0;
     private TankView playerTank;
@@ -27,9 +27,25 @@ public class EnemySpawner : MonoBehaviour
                                                        enemyList[id].bulletPrefab,
                                                        enemyList[id].bulletDamage);
 
-            EnemyController enemyController = new EnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
+            if (enemyList[i].enemyType == EnemyType.Heavy_Assault)
+            {
+                HeavyEnemyController heavyEnemyController = new HeavyEnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
                                                                     spawnPositions[i], damage);
-            enemyControllers.Add(enemyController);
+                enemyControllers.Add(heavyEnemyController);
+            }
+            else if (enemyList[i].enemyType == EnemyType.Scout)
+            {
+                ScoutEnemyController scoutEnemyController = new ScoutEnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
+                    spawnPositions[i], damage);
+                enemyControllers.Add(scoutEnemyController);
+            }
+            else
+            {
+                ArtilleryEnemyController artilleryEnemyController = new ArtilleryEnemyController(playerTank, enemyModel,
+                    enemyList[id].enemyPrefab,
+                    spawnPositions[i], damage);
+                enemyControllers.Add(artilleryEnemyController);
+            }
         }
 
         SpawnNextTank();

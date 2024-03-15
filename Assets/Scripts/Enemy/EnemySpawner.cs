@@ -12,11 +12,11 @@ public class EnemySpawner : MonoBehaviour
     private int currentEnemy = 0;
     private TankView playerTank;
 
-    public void PoolEnemyTanks(int enemyCount, int damage)
+    public void PoolEnemyTanks(List<EnemyType> enemiesToSpawn, int damage)
     {
-        for (int i = 0; i < enemyCount; i++)
+        for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
-            int id = Random.Range(0, 3);
+            int id = (int)enemiesToSpawn[i];
             EnemyModel enemyModel = new EnemyModel(enemyList[id].enemyType,
                                                        enemyList[id].movementSpeed,
                                                        enemyList[id].rotationSpeed,
@@ -27,13 +27,13 @@ public class EnemySpawner : MonoBehaviour
                                                        enemyList[id].bulletPrefab,
                                                        enemyList[id].bulletDamage);
 
-            if (enemyList[i].enemyType == EnemyType.Heavy_Assault)
+            if (enemiesToSpawn[i] == EnemyType.Heavy_Assault)
             {
                 HeavyEnemyController heavyEnemyController = new HeavyEnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
                                                                     spawnPositions[i], damage);
                 enemyControllers.Add(heavyEnemyController);
             }
-            else if (enemyList[i].enemyType == EnemyType.Scout)
+            else if (enemiesToSpawn[i] == EnemyType.Scout)
             {
                 ScoutEnemyController scoutEnemyController = new ScoutEnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
                     spawnPositions[i], damage);

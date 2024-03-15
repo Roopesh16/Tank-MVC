@@ -32,7 +32,7 @@ public class WaveManager
             return;
         }
 
-        enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemyCount, GameManager.Instance.GetBulletDamage());
+        enemySpawner.PoolEnemyTanks(wavesList[waveCount].enemiesToSpawn, GameManager.Instance.GetBulletDamage());
         waveCount++;
     }
 

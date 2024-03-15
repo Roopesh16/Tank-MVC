@@ -1486,9 +1486,9 @@ MonoBehaviour:
   - {fileID: 1599335173}
   - {fileID: 507202768}
   enemyList:
-  - {fileID: 11400000, guid: ba03f218deecdd54f9136d6de4b96462, type: 2}
   - {fileID: 11400000, guid: 85c7360d9caf18d49a63518fc505e0e9, type: 2}
   - {fileID: 11400000, guid: 4f8bb195873785749919526dbdbf08c1, type: 2}
+  - {fileID: 11400000, guid: ba03f218deecdd54f9136d6de4b96462, type: 2}
 --- !u!1 &1599335172
 GameObject:
   m_ObjectHideFlags: 0

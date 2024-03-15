@@ -1,14 +1,18 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBulletView : MonoBehaviour
 {
-    [SerializeField] private GameObject tankExplosionParticle;
+    private ParticleSystem tankExplosionParticle;
     private bool canMove = false;
     private float timer = 0f;
     private const float maxTime = 3f;
 
     private EnemyController enemyController;
+
+    private void Awake()
+    {
+        tankExplosionParticle = GetComponentInChildren<ParticleSystem>();
+    }
 
     private void Update()
     {
@@ -26,12 +30,8 @@ public class EnemyBulletView : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject particle = Instantiate(tankExplosionParticle);
-            particle.transform.position = transform.position;
-            particle.GetComponent<ParticleSystem>().Play();
-            gameObject.SetActive(false);
-            Destroy(particle, particle.GetComponent<ParticleSystem>().main.duration);
-            Destroy(gameObject, particle.GetComponent<ParticleSystem>().main.duration);
+            tankExplosionParticle.Play();
+            Destroy(gameObject, tankExplosionParticle.main.duration);
         }
     }
 

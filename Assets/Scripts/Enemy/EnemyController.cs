@@ -4,6 +4,7 @@ public class EnemyController
 {
     private EnemyModel enemyModel;
     private EnemyView enemyView;
+    private EnemyBulletView enemyBulletView;
     private int damage;
 
     public EnemyController(TankView tankView, EnemyModel enemyModel, EnemyView enemyView, Transform spawnPosition, int damage)
@@ -34,9 +35,16 @@ public class EnemyController
         enemyView.StartTank();
     }
 
+    public void MoveBullet()
+    {
+        enemyBulletView.transform.Translate(enemyBulletView.transform.forward*enemyModel.bulletSpeed*Time.deltaTime,
+                                    Space.World);
+    }
+
     public void SpawnBullets(Transform bulletSpawnPosition)
     {
-        EnemyBulletView enemyBulletView = GameObject.Instantiate<EnemyBulletView>(enemyModel.enemyBullet, bulletSpawnPosition);
-        enemyBulletView.SetEnemyBulletView(enemyView.transform.forward, enemyModel.bulletSpeed);
+        enemyBulletView = GameObject.Instantiate<EnemyBulletView>(enemyModel.enemyBullet, bulletSpawnPosition);
+        enemyBulletView.SetEnemyController(this);
+        enemyBulletView.InitEnemyBulletView(enemyView.transform.forward);
     }
 }

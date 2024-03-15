@@ -4,17 +4,18 @@ using UnityEngine;
 public class EnemyBulletView : MonoBehaviour
 {
     [SerializeField] private GameObject tankExplosionParticle;
-    private float bulletSpeed;
     private bool canMove = false;
     private float timer = 0f;
-    private float maxTime = 3f;
+    private const float maxTime = 3f;
+
+    private EnemyController enemyController;
 
     private void Update()
     {
         if (canMove)
         {
-            transform.Translate(transform.forward * bulletSpeed * Time.deltaTime, Space.World);
-
+            enemyController.MoveBullet();
+            
             timer += Time.deltaTime;
             if (timer >= maxTime)
                 Destroy(gameObject);
@@ -34,10 +35,11 @@ public class EnemyBulletView : MonoBehaviour
         }
     }
 
-    public void SetEnemyBulletView(Vector3 forward, float bulletSpeed)
+    public void SetEnemyController(EnemyController enemyController) => this.enemyController = enemyController;
+
+    public void InitEnemyBulletView(Vector3 forward)
     {
         transform.forward = forward;
-        this.bulletSpeed = bulletSpeed;
         canMove = true;
     }
 }

@@ -6,6 +6,5 @@ using UnityEngine.Serialization;
 public class WaveScriptableObject : ScriptableObject
 {
     public int waveNumber;
-    public int enemyCount;
     public List<EnemyType> enemiesToSpawn = new ();
 }

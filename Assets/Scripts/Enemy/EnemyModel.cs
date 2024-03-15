@@ -13,7 +13,7 @@ public class EnemyModel
     public EnemyBulletView enemyBullet;
     public int bulletDamage;
 
-    private EnemyController enemyController;
+    private IEnemyController enemyController;
 
     public EnemyModel(EnemyType enemyType, float movementSpeed, float rotationSpeed, int health, float firingRate,
                       float stoppingDistance, float bulletSpeed, EnemyBulletView enemyBullet, int bulletDamage)
@@ -29,5 +29,5 @@ public class EnemyModel
         this.bulletDamage = bulletDamage;
     }
 
-    public void SetEnemyController(EnemyController enemyController) => this.enemyController = enemyController;
+    public void SetEnemyController(IEnemyController enemyController) => this.enemyController = enemyController;
 }

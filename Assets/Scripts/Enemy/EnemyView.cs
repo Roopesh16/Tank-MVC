@@ -6,7 +6,7 @@ public class EnemyView : MonoBehaviour
     [SerializeField] private Transform bulletSpawnPosition;
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask playerLayer;
-    private EnemyController enemyController;
+    private IEnemyController enemyController;
     private NavMeshAgent navMeshAgent;
     private TankView playerTank;
     private bool canTrack = false;
@@ -89,7 +89,7 @@ public class EnemyView : MonoBehaviour
         navMeshAgent.stoppingDistance = stoppingDistance;
     }
 
-    public void SetEnemyController(EnemyController enemyController) => this.enemyController = enemyController;
+    public void SetEnemyController(IEnemyController enemyController) => this.enemyController = enemyController;
 
     public void StartTank()
     {

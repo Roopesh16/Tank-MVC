@@ -7,7 +7,7 @@ public class EnemyBulletView : MonoBehaviour
     private float timer = 0f;
     private const float maxTime = 3f;
 
-    private EnemyController enemyController;
+    private IEnemyController enemyController;
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class EnemyBulletView : MonoBehaviour
         }
     }
 
-    public void SetEnemyController(EnemyController enemyController) => this.enemyController = enemyController;
+    public void SetEnemyController(IEnemyController enemyController) => this.enemyController = enemyController;
 
     public void InitEnemyBulletView(Vector3 forward)
     {

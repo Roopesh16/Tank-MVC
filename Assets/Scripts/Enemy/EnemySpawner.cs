@@ -12,11 +12,11 @@ public class EnemySpawner : MonoBehaviour
     private int currentEnemy = 0;
     private TankView playerTank;
 
-    public void PoolEnemyTanks(int enemyCount, int damage)
+    public void PoolEnemyTanks(List<EnemyType> enemiesToSpawn, int damage)
     {
-        for (int i = 0; i < enemyCount; i++)
+        for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
-            int id = Random.Range(0, 3);
+            int id = (int)enemiesToSpawn[i];
             EnemyModel enemyModel = new EnemyModel(enemyList[id].enemyType,
                                                        enemyList[id].movementSpeed,
                                                        enemyList[id].rotationSpeed,

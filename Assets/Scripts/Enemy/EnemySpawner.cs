@@ -27,13 +27,13 @@ public class EnemySpawner : MonoBehaviour
                                                        enemyList[id].bulletPrefab,
                                                        enemyList[id].bulletDamage);
 
-            if (enemyList[i].enemyType == EnemyType.Heavy_Assault)
+            if (enemiesToSpawn[i] == EnemyType.Heavy_Assault)
             {
                 HeavyEnemyController heavyEnemyController = new HeavyEnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
                                                                     spawnPositions[i], damage);
                 enemyControllers.Add(heavyEnemyController);
             }
-            else if (enemyList[i].enemyType == EnemyType.Scout)
+            else if (enemiesToSpawn[i] == EnemyType.Scout)
             {
                 ScoutEnemyController scoutEnemyController = new ScoutEnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
                     spawnPositions[i], damage);

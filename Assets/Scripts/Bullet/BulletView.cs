@@ -10,6 +10,7 @@ public class BulletView : MonoBehaviour
     private MeshRenderer meshRenderer;
     private BulletController bulletController;
     private float blastRadius;
+    private float bulletSpeed;
 
     private void Awake()
     {
@@ -21,7 +22,8 @@ public class BulletView : MonoBehaviour
     {
         if (canMove)
         {
-            bulletController.MoveBullet();
+            transform.Translate(transform.forward * 
+                                              (bulletSpeed * Time.deltaTime), Space.World);
         }
     }
 

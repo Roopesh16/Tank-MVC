@@ -129,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8842da48d21304e819bf5453d04b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletBlastPrefab: {fileID: 1291295503164410}
   impactLayer:
     serializedVersion: 2
     m_Bits: 256

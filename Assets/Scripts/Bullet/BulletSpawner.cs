@@ -24,7 +24,7 @@ public class BulletSpawner : MonoBehaviour
     {
         if (hasTankSpawned && Input.GetKeyDown(KeyCode.Space))
         {
-            bulletController.Shoot();
+            bulletController.ShootBullet();
         }
     }
     

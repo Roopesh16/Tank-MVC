@@ -97,6 +97,11 @@ public class EnemyView : MonoBehaviour
         canTrack = true;
     }
 
+    public void DecreaseHealth()
+    {
+        enemyController.DecreaseHealth();
+    }
+
     private void StopTank()
     {
         canTrack = false;

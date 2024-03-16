@@ -31,7 +31,7 @@ public class BulletView : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Buildings") || other.gameObject.CompareTag("EnemyTank"))
         {
-            // BlastImpact();
+            BlastImpact();
             bulletBlastParticle.Play();
             canMove = false;
             meshRenderer.enabled = false;
@@ -52,5 +52,11 @@ public class BulletView : MonoBehaviour
     private void BlastImpact()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, blastRadius, impactLayer);
+
+        foreach (Collider hit in hits)
+        {
+            if(hit.CompareTag("EnemyTank"))
+                hit.GetComponent<EnemyView>().DecreaseHealth();
+        }
     }
 }

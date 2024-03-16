@@ -21,7 +21,7 @@ public class BulletView : MonoBehaviour
     {
         if (canMove)
         {
-            transform.Translate(transform.forward * bulletSpeed * Time.deltaTime, Space.World);
+            bulletController.MoveBullet();
         }
     }
 
@@ -30,19 +30,15 @@ public class BulletView : MonoBehaviour
         if (other.gameObject.CompareTag("Buildings") || other.gameObject.CompareTag("EnemyTank"))
         {
             // BlastImpact();
-            GameObject shellBlast = Instantiate(bulletBlastPrefab);
-            shellBlast.transform.position = transform.position;
-            shellBlast.GetComponent<ParticleSystem>().Play();
-            gameObject.SetActive(false);
-            Destroy(shellBlast, shellBlast.GetComponent<ParticleSystem>().main.duration);
-            Destroy(gameObject, shellBlast.GetComponent<ParticleSystem>().main.duration);
+            bulletBlastParticle.transform.position = transform.position;
+            bulletBlastParticle.Play();
+            Destroy(gameObject, bulletBlastParticle.main.duration);
         }
     }
 
-    public void SetBulletData(Material color, float bulletSpeed, float blastRadius)
+    public void SetBulletData(Material color, float blastRadius)
     {
         meshRenderer.material = color;
-        this.bulletSpeed = bulletSpeed;
         this.blastRadius = blastRadius;
         canMove = true;
     }

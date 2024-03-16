@@ -31,6 +31,8 @@ public class EnemyBulletView : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             tankExplosionParticle.Play();
+            canMove = false;
+            GetComponent<MeshRenderer>().enabled = false;
             Destroy(gameObject, tankExplosionParticle.main.duration);
         }
     }

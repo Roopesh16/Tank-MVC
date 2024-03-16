@@ -37,7 +37,7 @@ public partial class ArtilleryEnemyController:IEnemyController
 
     public void MoveBullet()
     {
-        enemyBulletView.transform.Translate(enemyBulletView.transform.forward*enemyModel.bulletSpeed*Time.deltaTime,
+        enemyBulletView.transform.Translate(enemyBulletView.transform.forward * (enemyModel.bulletSpeed * Time.deltaTime),
                                     Space.World);
     }
 

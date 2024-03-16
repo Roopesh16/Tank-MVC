@@ -1,31 +1,28 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletController
 {
     private BulletModel bulletModel;
-    private BulletView bulletView;
+    private BulletView bulletPrefab;
+    private BulletView bulletSpawned;
     private Transform spawnPoint;
     private Transform parentPosition;
 
 
-    public BulletController(BulletModel bulletModel, BulletView bulletView, Transform spawnPoint, Transform parentPosition)
+    public BulletController(BulletModel bulletModel, BulletView bulletPrefab, Transform spawnPoint, Transform parentPosition)
     {
         this.bulletModel = bulletModel;
-        this.bulletView = bulletView;
-
-        this.bulletView.SetBulletController(this);
-        this.bulletModel.SetBulletController(this);
+        this.bulletPrefab = bulletPrefab;
         this.spawnPoint = spawnPoint;
         this.parentPosition = parentPosition;
     }
-
-    public void Shoot()
+    
+    public void ShootBullet()
     {
-        BulletView bullet = GameObject.Instantiate<BulletView>(bulletView, spawnPoint);
-        bullet.transform.SetParent(parentPosition);
-        bullet.SetBulletData(bulletModel.color, bulletModel.bulletSpeed, bulletModel.blastRadius);
+        bulletSpawned = GameObject.Instantiate<BulletView>(bulletPrefab, spawnPoint);
+        bulletSpawned.SetBulletController(this);
+        bulletSpawned.transform.SetParent(parentPosition);
+        bulletSpawned.InitBulletView(bulletModel.color, bulletModel.blastRadius,bulletModel.bulletSpeed);
     }
 
     public int GetDamage() => bulletModel.damage;

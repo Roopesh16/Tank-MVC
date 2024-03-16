@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: 
   waveNumber: 1
-  enemyCount: 3
-  enemiesToSpawn: 000000000000000001000000
+  enemiesToSpawn: 000000000200000001000000

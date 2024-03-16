@@ -3,15 +3,19 @@ using UnityEngine.Rendering;
 
 public class BulletView : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletBlastPrefab;
     [SerializeField] private LayerMask impactLayer;
-    bool canMove = false;
+    
+    private bool canMove = false;
+    private ParticleSystem bulletBlastParticle;
     private MeshRenderer meshRenderer;
     private BulletController bulletController;
     private float blastRadius;
-    private float bulletSpeed;
 
-    private void Awake() => meshRenderer = GetComponent<MeshRenderer>();
+    private void Awake()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+        bulletBlastParticle = GetComponentInChildren<ParticleSystem>();
+    }
 
     void Update()
     {

@@ -22,7 +22,7 @@ public class BulletController
         bulletSpawned = GameObject.Instantiate<BulletView>(bulletPrefab, spawnPoint);
         bulletSpawned.SetBulletController(this);
         bulletSpawned.transform.SetParent(parentPosition);
-        bulletSpawned.SetBulletData(bulletModel.color, bulletModel.blastRadius,bulletModel.bulletSpeed);
+        bulletSpawned.InitBulletView(bulletModel.color, bulletModel.blastRadius,bulletModel.bulletSpeed);
     }
 
     public int GetDamage() => bulletModel.damage;

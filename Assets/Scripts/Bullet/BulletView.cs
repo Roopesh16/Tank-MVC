@@ -39,7 +39,7 @@ public class BulletView : MonoBehaviour
         }
     }
 
-    public void SetBulletData(Material color, float blastRadius,float bulletSpeed)
+    public void InitBulletView(Material color, float blastRadius,float bulletSpeed)
     {
         meshRenderer.material = color;
         this.blastRadius = blastRadius;

@@ -34,14 +34,17 @@ public class BulletView : MonoBehaviour
             // BlastImpact();
             bulletBlastParticle.transform.position = transform.position;
             bulletBlastParticle.Play();
-            Destroy(gameObject, bulletBlastParticle.main.duration);
+            canMove = false;
+            meshRenderer.enabled = false;
+            Destroy(gameObject,bulletBlastParticle.main.duration);
         }
     }
 
-    public void SetBulletData(Material color, float blastRadius)
+    public void SetBulletData(Material color, float blastRadius,float bulletSpeed)
     {
         meshRenderer.material = color;
         this.blastRadius = blastRadius;
+        this.bulletSpeed = bulletSpeed;
         canMove = true;
     }
 

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,9 +13,9 @@ public class EnemyView : MonoBehaviour
     private TankView playerTank;
     private bool canTrack = false;
     private Ray ray;
-    private float timer = 0f;
     private float maxTime = 2f;
-    private bool canStartTimer = false;
+    private bool isTimerOff = true;
+    private const string bulletString = "Bullet";
 
     private void Awake() => navMeshAgent = GetComponent<NavMeshAgent>();
 
@@ -29,7 +31,7 @@ public class EnemyView : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag(bulletString))
         {
             enemyController.DecreaseHealth();
         }
@@ -38,16 +40,6 @@ public class EnemyView : MonoBehaviour
 
     private void Update()
     {
-        if (canStartTimer)
-        {
-            timer += Time.deltaTime;
-            if (timer >= maxTime)
-            {
-                timer = 0f;
-                canStartTimer = false;
-            }
-        }
-
         if (canTrack)
         {
             Vector3 direction = playerTank.transform.position - transform.position;
@@ -71,13 +63,20 @@ public class EnemyView : MonoBehaviour
             ray = new Ray(transform.position, transform.forward);
             if (Physics.Raycast(ray, navMeshAgent.stoppingDistance, playerLayer))
             {
-                if (timer == 0f)
+                if (isTimerOff)
                 {
                     enemyController.SpawnBullets(bulletSpawnPosition);
-                    canStartTimer = true;
+                    StartCoroutine(StartTimer());
+                    isTimerOff = false;
                 }
             }
         }
+    }
+
+    private IEnumerator StartTimer()
+    {
+        yield return new WaitForSeconds(maxTime);
+        isTimerOff = true;
     }
 
     public void SetEnemyView(TankView playerTank, float movementSpeed, float rotationSpeed, float stoppingDistance, float maxTime)

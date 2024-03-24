@@ -10,12 +10,7 @@ public class BulletSpawner : MonoBehaviour
     public void CreateBullet(TankTypes tankType, Transform bulletSpawnPoint)
     {
         int bId = (int)tankType;
-        BulletModel bulletModel = new BulletModel(bulletList[bId].bulletSpeed,
-                                                 bulletList[bId].bulletType,
-                                                 bulletList[bId].bulletColor,
-                                                 bulletList[bId].blastRadius,
-                                                 bulletList[bId].firingRate,
-                                                 bulletList[bId].damage);
+        BulletModel bulletModel = new BulletModel(bulletList[bId]);
         bulletController = new BulletController(bulletModel, bulletPrefab, bulletSpawnPoint, transform);
         hasTankSpawned = true;
     }

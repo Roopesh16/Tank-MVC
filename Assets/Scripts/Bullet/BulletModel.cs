@@ -13,15 +13,14 @@ public class BulletModel
 
     private BulletController bulletController;
 
-    public BulletModel(float bulletSpeed, BulletType bulletType, Material color,
-                       float blastRadius, float firingRate, int damage)
+    public BulletModel(BulletScriptableObject bulletSO)
     {
-        this.bulletSpeed = bulletSpeed;
-        this.bulletType = bulletType;
-        this.color = color;
-        this.blastRadius = blastRadius;
-        this.firingRate = firingRate;
-        this.damage = damage;
+        bulletSpeed = bulletSO.bulletSpeed;
+        bulletType = bulletSO.bulletType;
+        color = bulletSO.bulletColor;
+        blastRadius = bulletSO.blastRadius;
+        firingRate = bulletSO.firingRate;
+        damage = bulletSO.damage;
     }
 
     public void SetBulletController(BulletController bulletController) => this.bulletController = bulletController;

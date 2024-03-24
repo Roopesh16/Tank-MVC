@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47cd13d9d0f407438c21807f7d349c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 5488545323139834998}
   bulletSpawnPosition: {fileID: 6705687477718931821}
   maxDistance: 50
   playerLayer:

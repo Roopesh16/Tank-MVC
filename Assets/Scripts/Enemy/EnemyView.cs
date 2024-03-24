@@ -5,18 +5,16 @@ using UnityEngine.AI;
 
 public class EnemyView : MonoBehaviour
 {
+    [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform bulletSpawnPosition;
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask playerLayer;
     private IEnemyController enemyController;
-    private NavMeshAgent navMeshAgent;
     private TankView playerTank;
     private bool canTrack = false;
     private float maxTime = 2f;
     private bool isTimerOff = true;
     private const string bulletString = "Bullet";
-
-    private void Awake() => navMeshAgent = GetComponent<NavMeshAgent>();
 
     private void OnEnable()
     {

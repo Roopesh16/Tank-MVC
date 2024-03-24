@@ -6,13 +6,16 @@ public class ScoutEnemyController:IEnemyController
     private EnemyView enemyView;
     private EnemyBulletView enemyBulletView;
     private int damage;
+    private TankView tankView;
+    private Ray ray; 
 
     public ScoutEnemyController(TankView tankView, EnemyModel enemyModel, EnemyView enemyView, Transform spawnPosition, int damage)
     {
+        this.tankView = tankView;
         this.enemyModel = enemyModel;
         this.enemyView = GameObject.Instantiate<EnemyView>(enemyView, spawnPosition);
         this.enemyView.SetEnemyController(this);
-        this.enemyView.SetEnemyView(tankView, enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance, enemyModel.firingRate);
+        this.enemyView.SetEnemyView(enemyModel.movementSpeed, enemyModel.rotationSpeed, enemyModel.stoppingDistance, enemyModel.firingRate);
         this.enemyView.gameObject.SetActive(false);
         this.damage = damage;
         GameManager.Instance.SetEnemyDamage(enemyModel.bulletDamage);
@@ -46,5 +49,34 @@ public class ScoutEnemyController:IEnemyController
         enemyBulletView = GameObject.Instantiate<EnemyBulletView>(enemyModel.enemyBullet, bulletSpawnPosition);
         enemyBulletView.SetEnemyController(this);
         enemyBulletView.InitEnemyBulletView(enemyView.transform.forward);
+    }
+    
+    public void MoveTank()
+    {
+        Vector3 direction = tankView.transform.position - enemyView.transform.position;
+        enemyView.transform.forward = direction;
+        
+        if (Vector3.Magnitude(direction) > enemyView.GetNaveMesh().stoppingDistance)
+        {
+            enemyView.GetNaveMesh().isStopped = false;
+            enemyView.GetNaveMesh().SetDestination(tankView.transform.position);
+        }
+        else
+        {
+            enemyView.GetNaveMesh().isStopped = true;
+        }
+    }
+
+    public void TrackPlayerTank()
+    {
+        ray = new Ray(enemyView.transform.position, enemyView.transform.forward);
+        if (Physics.Raycast(ray, enemyView.GetNaveMesh().stoppingDistance, enemyView.GetPlayerLayer()))
+        {
+            if (enemyView.GetTimerOff())
+            {
+                SpawnBullets(enemyView.GetBulletSpawnPosition());
+                enemyView.BeginTimer();
+            }
+        }
     }
 }

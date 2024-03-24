@@ -12,7 +12,6 @@ public class EnemyView : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private TankView playerTank;
     private bool canTrack = false;
-    private Ray ray;
     private float maxTime = 2f;
     private bool isTimerOff = true;
     private const string bulletString = "Bullet";
@@ -42,17 +41,7 @@ public class EnemyView : MonoBehaviour
     {
         if (canTrack)
         {
-            Vector3 direction = playerTank.transform.position - transform.position;
-            transform.forward = direction;
-            if (Vector3.Magnitude(direction) > navMeshAgent.stoppingDistance)
-            {
-                navMeshAgent.isStopped = false;
-                navMeshAgent.SetDestination(playerTank.transform.position);
-            }
-            else
-            {
-                navMeshAgent.isStopped = true;
-            }
+            enemyController.MoveTank();
         }
     }
 
@@ -60,16 +49,7 @@ public class EnemyView : MonoBehaviour
     {
         if (canTrack)
         {
-            ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, navMeshAgent.stoppingDistance, playerLayer))
-            {
-                if (isTimerOff)
-                {
-                    enemyController.SpawnBullets(bulletSpawnPosition);
-                    StartCoroutine(StartTimer());
-                    isTimerOff = false;
-                }
-            }
+            enemyController.TrackPlayerTank();
         }
     }
 
@@ -79,9 +59,8 @@ public class EnemyView : MonoBehaviour
         isTimerOff = true;
     }
 
-    public void SetEnemyView(TankView playerTank, float movementSpeed, float rotationSpeed, float stoppingDistance, float maxTime)
+    public void SetEnemyView(float movementSpeed, float rotationSpeed, float stoppingDistance, float maxTime)
     {
-        this.playerTank = playerTank;
         this.maxTime = maxTime;
         navMeshAgent.speed = movementSpeed;
         navMeshAgent.angularSpeed = rotationSpeed;
@@ -105,5 +84,19 @@ public class EnemyView : MonoBehaviour
     {
         canTrack = false;
         navMeshAgent.isStopped = true;
+    }
+
+    public NavMeshAgent GetNaveMesh() => navMeshAgent;
+
+    public bool GetTimerOff() => isTimerOff;
+
+    public LayerMask GetPlayerLayer() => playerLayer;
+
+    public Transform GetBulletSpawnPosition() => bulletSpawnPosition;
+
+    public void BeginTimer()
+    {
+        StartCoroutine(StartTimer());
+        isTimerOff = false;
     }
 }

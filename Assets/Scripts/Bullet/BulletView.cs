@@ -31,11 +31,7 @@ public class BulletView : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Buildings") || other.gameObject.CompareTag("EnemyTank"))
         {
-            BlastImpact();
-            bulletBlastParticle.Play();
-            canMove = false;
-            meshRenderer.enabled = false;
-            Destroy(gameObject,bulletBlastParticle.main.duration);
+            bulletController.OnBulletHit();
         }
     }
 

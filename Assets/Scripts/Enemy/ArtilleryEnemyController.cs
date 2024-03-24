@@ -35,7 +35,7 @@ public partial class ArtilleryEnemyController:IEnemyController
     public void EnableTank()
     {
         enemyView.gameObject.SetActive(true);
-        enemyView.StartTank();
+        enemyView.StartTank(tankView.transform.position);
     }
 
     public void MoveBullet()

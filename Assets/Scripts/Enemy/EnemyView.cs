@@ -10,7 +10,6 @@ public class EnemyView : MonoBehaviour
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask playerLayer;
     private IEnemyController enemyController;
-    private TankView playerTank;
     private bool canTrack = false;
     private float maxTime = 2f;
     private bool isTimerOff = true;
@@ -67,9 +66,9 @@ public class EnemyView : MonoBehaviour
 
     public void SetEnemyController(IEnemyController enemyController) => this.enemyController = enemyController;
 
-    public void StartTank()
+    public void StartTank(Vector3 destination)
     {
-        navMeshAgent.SetDestination(playerTank.transform.position);
+        navMeshAgent.SetDestination(destination);
         canTrack = true;
     }
 

@@ -6,6 +6,8 @@ using TMPro;
 
 public class GameManager : GenericMonoSingleton<GameManager>
 {
+    [SerializeField] private BulletSpawner bulletSpawner;
+    
     [Header("Game Manager References")]
     [SerializeField] private float maxTime;
     [SerializeField] private Camera newCamera;
@@ -82,4 +84,6 @@ public class GameManager : GenericMonoSingleton<GameManager>
         yield return new WaitForSeconds(maxTime);
         eventManager.OnNewWave.InvokeEvent();
     }
+
+    public BulletSpawner GetBulletSpawner() => bulletSpawner;
 }

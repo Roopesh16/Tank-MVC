@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Timers;
 public class BulletController
 {
     private BulletModel bulletModel;
@@ -23,5 +23,21 @@ public class BulletController
         bulletSpawned.SetBulletController(this);
         bulletSpawned.transform.SetParent(parentPosition);
         bulletSpawned.InitBulletView(bulletModel.color, bulletModel.blastRadius,bulletModel.bulletSpeed);
+    }
+
+    public void OnBulletHit()
+    {
+        bulletSpawned.BlastImpact();
+        bulletSpawned.GetBlastParticle().Play();
+        bulletSpawned.StopBullet();
+        bulletSpawned.DisableMesh();
+        // Invoke("DisableBullet",bulletSpawned.GetBlastParticle().main.duration);
+        DisableBullet();
+    }
+
+    private void DisableBullet()
+    {
+        bulletSpawned.gameObject.SetActive(false);
+        GameManager.Instance.GetBulletSpawner().ReturnBulletToPool(this);
     }
 }

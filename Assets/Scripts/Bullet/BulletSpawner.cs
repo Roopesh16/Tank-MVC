@@ -29,4 +29,6 @@ public class BulletSpawner : MonoBehaviour
     }
     
     public int GetDamage() => bulletModel.damage;
+
+    public void ReturnBulletToPool(BulletController bulletController) => bulletPool.ReturnItem(bulletController);
 }

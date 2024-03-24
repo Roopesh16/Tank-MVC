@@ -24,6 +24,4 @@ public class BulletController
         bulletSpawned.transform.SetParent(parentPosition);
         bulletSpawned.InitBulletView(bulletModel.color, bulletModel.blastRadius,bulletModel.bulletSpeed);
     }
-
-    public int GetDamage() => bulletModel.damage;
 }

@@ -49,7 +49,7 @@ public class BulletView : MonoBehaviour
 
     public void SetBulletController(BulletController bulletController) => this.bulletController = bulletController;
 
-    private void BlastImpact()
+    public void BlastImpact()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, blastRadius, impactLayer);
 
@@ -59,4 +59,9 @@ public class BulletView : MonoBehaviour
                 hit.GetComponent<EnemyView>().DecreaseHealth();
         }
     }
+
+    public ParticleSystem GetBlastParticle() => bulletBlastParticle;
+    public void StopBullet() => canMove = false;
+    public void DisableMesh() => meshRenderer.enabled = false;
+
 }

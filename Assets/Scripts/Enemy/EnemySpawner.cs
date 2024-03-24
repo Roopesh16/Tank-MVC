@@ -17,15 +17,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
             int id = (int)enemiesToSpawn[i];
-            EnemyModel enemyModel = new EnemyModel(enemyList[id].enemyType,
-                                                       enemyList[id].movementSpeed,
-                                                       enemyList[id].rotationSpeed,
-                                                       enemyList[id].health,
-                                                       enemyList[id].firingRate,
-                                                       enemyList[id].stoppingDistance,
-                                                       enemyList[id].bulletSpeed,
-                                                       enemyList[id].bulletPrefab,
-                                                       enemyList[id].bulletDamage);
+            EnemyModel enemyModel = new EnemyModel(enemyList[id]);
 
             if (enemiesToSpawn[i] == EnemyType.Heavy_Assault)
             {
@@ -36,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
             else if (enemiesToSpawn[i] == EnemyType.Scout)
             {
                 ScoutEnemyController scoutEnemyController = new ScoutEnemyController(playerTank, enemyModel, enemyList[id].enemyPrefab,
-                    spawnPositions[i], damage);
+                    spawnPositions[i], damage); 
                 enemyControllers.Add(scoutEnemyController);
             }
             else

@@ -15,18 +15,17 @@ public class EnemyModel
 
     private IEnemyController enemyController;
 
-    public EnemyModel(EnemyType enemyType, float movementSpeed, float rotationSpeed, int health, float firingRate,
-                      float stoppingDistance, float bulletSpeed, EnemyBulletView enemyBullet, int bulletDamage)
+    public EnemyModel(EnemyScriptableObject enemySO)
     {
-        this.enemyType = enemyType;
-        this.movementSpeed = movementSpeed;
-        this.rotationSpeed = rotationSpeed;
-        this.health = health;
-        this.firingRate = firingRate;
-        this.stoppingDistance = stoppingDistance;
-        this.bulletSpeed = bulletSpeed;
-        this.enemyBullet = enemyBullet;
-        this.bulletDamage = bulletDamage;
+        enemyType = enemySO.enemyType;
+        movementSpeed = enemySO.movementSpeed;
+        rotationSpeed = enemySO.rotationSpeed;
+        health = enemySO.health;
+        firingRate = enemySO.firingRate;
+        stoppingDistance = enemySO.stoppingDistance ;
+        bulletSpeed = enemySO.bulletSpeed;
+        enemyBullet = enemySO.bulletPrefab;
+        bulletDamage = enemySO.bulletDamage;
     }
 
     public void SetEnemyController(IEnemyController enemyController) => this.enemyController = enemyController;

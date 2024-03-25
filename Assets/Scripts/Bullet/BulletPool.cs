@@ -18,12 +18,12 @@ namespace Bullet
             this.spawnPoint = spawnPoint;
             this.parentPosition = parentPosition;
 
-            return GetItem();
+            return GetItem<BulletController>();
         }
 
-        protected override BulletController CreateItem()
+        protected override BulletController CreateItem<U>()
         {
-            return new BulletController(bulletModel,bulletView,spawnPoint,parentPosition);
+            return new BulletController(bulletModel, bulletView, spawnPoint, parentPosition);
         }
     }
 }

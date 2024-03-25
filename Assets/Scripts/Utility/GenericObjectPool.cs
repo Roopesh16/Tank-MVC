@@ -13,11 +13,11 @@ namespace Utility
     {
         public List<PooledItem<T>> pooledItems = new();
 
-        public T GetItem()
+        public T GetItem<U>() where U : T
         {
             if (pooledItems.Count > 0)
             {
-                PooledItem<T> pooledItem = pooledItems.Find(item => !item.IsUsed);
+                PooledItem<T> pooledItem = pooledItems.Find(item => !item.IsUsed && item.Item is U);
                 if (pooledItem != null)
                 {
                     pooledItem.IsUsed = true;
@@ -25,19 +25,19 @@ namespace Utility
                 }
             }
 
-            return CreateNewItem();
+            return CreateNewItem<U>();
         }
 
-        private T CreateNewItem()
+        private T CreateNewItem<U>()
         {
             PooledItem<T> newItem = new PooledItem<T>();
-            newItem.Item = CreateItem();
+            newItem.Item = CreateItem<U>();
             newItem.IsUsed = true;
             pooledItems.Add(newItem);
             return newItem.Item;
         }
 
-        protected virtual T CreateItem()
+        protected virtual T CreateItem<U>()
         {
             throw new NotImplementedException("Child class not implemented!");
         }

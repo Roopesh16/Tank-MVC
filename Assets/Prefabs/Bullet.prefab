@@ -132,7 +132,8 @@ MonoBehaviour:
   impactLayer:
     serializedVersion: 2
     m_Bits: 256
-  particleSystem: {fileID: 19874418, guid: 83b5bb0521ea94340aeb7a11ab4ea689, type: 3}
+  meshRenderer: {fileID: 2387822}
+  bulletBlastParticle: {fileID: 198540207889710882}
 --- !u!1 &1291295503164410
 GameObject:
   m_ObjectHideFlags: 0

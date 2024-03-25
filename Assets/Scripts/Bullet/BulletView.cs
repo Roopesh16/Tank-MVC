@@ -4,19 +4,14 @@ using UnityEngine.Rendering;
 public class BulletView : MonoBehaviour
 {
     [SerializeField] private LayerMask impactLayer;
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private ParticleSystem bulletBlastParticle;
     
     private bool canMove = false;
-    private ParticleSystem bulletBlastParticle;
-    private MeshRenderer meshRenderer;
     private BulletController bulletController;
     private float blastRadius;
     private float bulletSpeed;
-
-    private void Awake()
-    {
-        meshRenderer = GetComponent<MeshRenderer>();
-        bulletBlastParticle = GetComponentInChildren<ParticleSystem>();
-    }
+    
 
     void Update()
     {
@@ -40,6 +35,11 @@ public class BulletView : MonoBehaviour
         meshRenderer.material = color;
         this.blastRadius = blastRadius;
         this.bulletSpeed = bulletSpeed;
+    }
+
+    public void ShootBullet()
+    {
+        meshRenderer.enabled = true;
         canMove = true;
     }
 
@@ -57,7 +57,13 @@ public class BulletView : MonoBehaviour
     }
 
     public ParticleSystem GetBlastParticle() => bulletBlastParticle;
-    public void StopBullet() => canMove = false;
+
+    public void StopBullet(Transform spawnPoint)
+    {
+        canMove = false;
+        transform.position = spawnPoint.position;
+        transform.forward = spawnPoint.forward;
+    }
     public void DisableMesh() => meshRenderer.enabled = false;
 
 }

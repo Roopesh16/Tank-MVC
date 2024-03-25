@@ -3,34 +3,35 @@ using UnityEngine;
 public class BulletController
 {
     private BulletModel bulletModel;
-    private BulletView bulletPrefab;
     private BulletView bulletSpawned;
-    private Transform spawnPoint;
     private Transform parentPosition;
-
-
+    private Transform spawnPoint;
+    
     public BulletController(BulletModel bulletModel, BulletView bulletPrefab, Transform spawnPoint, Transform parentPosition)
     {
         this.bulletModel = bulletModel;
-        this.bulletPrefab = bulletPrefab;
         this.spawnPoint = spawnPoint;
-        this.parentPosition = parentPosition;
+        
+        bulletSpawned = GameObject.Instantiate<BulletView>(bulletPrefab,spawnPoint);
+        bulletSpawned.InitBulletView(bulletModel.color, bulletModel.blastRadius,bulletModel.bulletSpeed);
+        bulletSpawned.SetBulletController(this);
+        bulletSpawned.transform.SetParent(parentPosition);
     }
     
     public void ShootBullet()
     {
-        bulletSpawned = GameObject.Instantiate<BulletView>(bulletPrefab, spawnPoint);
-        bulletSpawned.SetBulletController(this);
-        bulletSpawned.transform.SetParent(parentPosition);
-        bulletSpawned.InitBulletView(bulletModel.color, bulletModel.blastRadius,bulletModel.bulletSpeed);
+        bulletSpawned.gameObject.SetActive(true);
+        bulletSpawned.gameObject.transform.position = spawnPoint.position;
+        // bulletSpawned.gameObject.transform.forward = spawnPoint.forward;
+        bulletSpawned.ShootBullet();
     }
 
     public void OnBulletHit()
     {
         bulletSpawned.BlastImpact();
         bulletSpawned.GetBlastParticle().Play();
-        bulletSpawned.StopBullet();
         bulletSpawned.DisableMesh();
+        bulletSpawned.StopBullet(spawnPoint);
         // Invoke("DisableBullet",bulletSpawned.GetBlastParticle().main.duration);
         DisableBullet();
     }

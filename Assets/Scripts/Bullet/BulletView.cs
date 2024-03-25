@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Rendering;
+using Bullet;
 
 public class BulletView : MonoBehaviour
 {

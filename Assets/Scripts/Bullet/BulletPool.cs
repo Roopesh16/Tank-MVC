@@ -10,8 +10,8 @@ namespace Bullet
         private Transform spawnPoint;
         private Transform parentPosition;
 
-        public BulletController GetBullet(BulletModel bulletModel, BulletView bulletView,
-            Transform spawnPoint, Transform parentPosition)
+        public BulletController GetBullet<T>(BulletModel bulletModel, BulletView bulletView,
+            Transform spawnPoint, Transform parentPosition) where T : BulletController
         {
             this.bulletModel = bulletModel;
             this.bulletView = bulletView;

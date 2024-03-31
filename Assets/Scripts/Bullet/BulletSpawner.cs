@@ -39,7 +39,7 @@ public class BulletSpawner : MonoBehaviour
     private void InitBulletDictionary()
     {
         bulletDict.Add(TankTypes.RED, bulletPool.GetBullet<ArmourBulletController>(bulletModel, 
-                                                    bulletPrefab, bulletSpawnPoint, transform));
+            bulletPrefab, bulletSpawnPoint, transform));
         
         bulletDict.Add(TankTypes.GREEN, bulletPool.GetBullet<ExplosiveBulletController>(bulletModel, 
                                                      bulletPrefab, bulletSpawnPoint, transform));
@@ -49,6 +49,6 @@ public class BulletSpawner : MonoBehaviour
     }
     
     public int GetDamage() => bulletModel.damage;
-
+    
     public void ReturnBulletToPool(BulletController bulletToReturn) => bulletPool.ReturnItem(bulletToReturn);
 }

@@ -9,8 +9,6 @@ namespace Bullet
         protected Transform parentPosition;
         protected Transform spawnPoint;
         
-        public BulletController(){}
-
         public BulletController(BulletModel bulletModel, BulletView bulletPrefab, Transform spawnPoint,
             Transform parentPosition)
         {
